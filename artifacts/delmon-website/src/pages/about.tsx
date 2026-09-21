@@ -84,7 +84,7 @@ export default function AboutPage() {
                     className="group border-b border-border py-10 md:py-16 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 transition-all duration-500 hover:bg-slate-50/50 px-4 -mx-4 md:px-8 md:-mx-8"
                     data-testid={`value-row-${idx}`}
                   >
-                    <div className="text-5xl md:text-6xl font-display font-light text-muted/40 group-hover:text-primary transition-colors duration-500 w-24 shrink-0">
+                    <div className="text-5xl md:text-6xl font-display font-light text-slate-700 group-hover:text-primary transition-colors duration-500 w-24 shrink-0">
                       0{idx + 1}
                     </div>
                     <div className="flex-grow">

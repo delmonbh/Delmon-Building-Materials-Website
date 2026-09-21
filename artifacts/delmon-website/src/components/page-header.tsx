@@ -10,7 +10,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle, description, image }: PageHeaderProps) {
   return (
-    <header className="pt-24 md:pt-32 pb-8 md:pb-12 mb-16 md:mb-24">
+    <header className="pt-20 sm:pt-24 md:pt-32 pb-8 md:pb-12 mb-16 md:mb-24">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12 md:mb-16">
           <div className="lg:col-span-7">

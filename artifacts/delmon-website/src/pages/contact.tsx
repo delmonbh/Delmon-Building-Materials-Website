@@ -6,7 +6,7 @@ import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import meshImg from '@/assets/mesh.jpg';
+import contactCommunicationImg from '@/assets/contact-communication.jpg';
 
 export default function ContactPage() {
   usePageSetup("Contact Us | Delmon Building Materials", "Connect with our procurement specialists to discuss your project requirements, specifications, and volume needs in Bahrain.");
@@ -42,7 +42,7 @@ export default function ContactPage() {
           subtitle="Contact Us"
           title={<>Request a <br /><span className="italic text-muted-foreground">Quote</span></>}
           description="Connect with our procurement specialists to discuss your project requirements, specifications, and volume needs. We respond promptly with detailed material availability and pricing."
-          image={meshImg}
+          image={contactCommunicationImg}
         />
 
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
