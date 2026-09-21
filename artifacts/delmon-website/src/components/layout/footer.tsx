@@ -10,7 +10,7 @@ export function Footer() {
           
           {/* Brand Col */}
           <div className="lg:col-span-1 flex flex-col gap-6">
-            <Logo variant="white" />
+            <Logo variant="default" />
             <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-xs font-sans">
               Part of the Mohamed Jalal & Sons group. Supporting Bahrain’s growth with premium deformed steel, white wood, and plywood since 1974.
             </p>
@@ -18,7 +18,7 @@ export function Footer() {
 
           {/* Contact Col */}
           <div>
-            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Contact Us</h4>
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-foreground">Contact Us</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Address Col */}
           <div>
-            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Address</h4>
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-foreground">Address</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -61,10 +61,10 @@ export function Footer() {
 
           {/* Links Col */}
           <div>
-            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Navigation</h4>
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-foreground">Navigation</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/80 font-semibold uppercase tracking-wide">
               <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#products" className="hover:text-primary transition-colors">Materials</a></li>
+              <li><a href="#products" className="hover:text-primary transition-colors">Products</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Request a Quote</a></li>
             </ul>
           </div>
@@ -77,7 +77,7 @@ export function Footer() {
           <div className="text-xs text-secondary-foreground/50 flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
             <span>Kingdom of Bahrain</span>
             <span className="hidden sm:inline">&bull;</span>
-            <a href="https://www.shatha-edelbi.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a href="https://www.shatha-edelbi.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-medium transition-colors">
               Designed and developed by SHE
             </a>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
@@ -12,7 +12,7 @@ import meshImg from '@/assets/mesh.jpg';
 
 function Hero() {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-white">
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-100 border-b border-slate-200">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="max-w-xl">
@@ -72,10 +72,9 @@ function Hero() {
 
 function Heritage() {
   return (
-    <section className="py-16 md:py-20 bg-white relative">
-      <span id="about" className="absolute top-[-80px]" />
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section className="bg-white relative">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10 py-16 md:py-24">
+        <div id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center scroll-mt-24">
           <div className="lg:col-span-6 flex flex-col gap-6">
             <FadeIn>
               <div className="inline-flex items-center gap-3 mb-2">
@@ -89,24 +88,24 @@ function Heritage() {
               </h2>
             </FadeIn>
             <FadeIn delay={150}>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 Since 1974, Delmon Building Materials has been the backbone of monumental construction projects across the Kingdom of Bahrain. Backed by regional sister companies and robust global sourcing networks, we ensure that when you need premium deformed steel, welded wire mesh, white wood, plywood, or MDF, it is delivered to your site with industrial precision.
               </p>
             </FadeIn>
-            <FadeIn delay={250} className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mb-1">
-                  <ShieldCheck className="w-5 h-5 text-primary" />
+            <FadeIn delay={250} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mt-6">
+              <div className="flex flex-col gap-3">
+                <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-1">
+                  <ShieldCheck className="w-6 h-6 text-primary" />
                 </div>
-                <h4 className="font-semibold text-foreground text-sm">Dependable</h4>
-                <p className="text-xs text-muted-foreground">Decades of proven reliability.</p>
+                <h4 className="font-semibold text-foreground text-lg">Dependable</h4>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Decades of proven reliability.</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mb-1">
-                  <Scale className="w-5 h-5 text-primary" />
+              <div className="flex flex-col gap-3">
+                <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-1">
+                  <Scale className="w-6 h-6 text-primary" />
                 </div>
-                <h4 className="font-semibold text-foreground text-sm">At Scale</h4>
-                <p className="text-xs text-muted-foreground">Capacity for demanding developments.</p>
+                <h4 className="font-semibold text-foreground text-lg">At Scale</h4>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Capacity for demanding developments.</p>
               </div>
             </FadeIn>
           </div>
@@ -164,33 +163,47 @@ function Services() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-slate-50 border-y border-slate-100">
+    <section className="py-20 md:py-32 bg-slate-950 text-slate-50 selection:bg-primary/30">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-display font-medium leading-tight text-foreground mb-4">
-              Industrial Supply <span className="italic text-primary">Engineered for Scale</span>
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base">
-              Comprehensive procurement and logistics solutions tailored for serious contractors.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {services.map((srv, idx) => (
-            <FadeIn key={srv.title} delay={idx * 100}>
-              <div className="bg-white rounded-xl p-6 md:p-8 h-full shadow-sm border border-slate-100 hover:shadow-md hover:border-primary/20 transition-all duration-300 group flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/5 transition-all">
-                  <srv.icon className="w-5 h-5 text-primary" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          
+          <div className="lg:col-span-5 relative">
+            <div className="lg:sticky lg:top-32">
+              <FadeIn>
+                <div className="inline-flex items-center gap-3 mb-6">
+                  <div className="w-8 h-[2px] bg-primary"></div>
+                  <span className="text-primary font-semibold tracking-wider text-xs uppercase">
+                    Capabilities
+                  </span>
                 </div>
-                <h3 className="text-base font-semibold text-foreground mb-3">{srv.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {srv.description}
+                <h2 className="text-3xl md:text-5xl font-display font-medium leading-tight text-white mb-6">
+                  Industrial Supply <br/><span className="italic text-slate-400">Engineered for Scale</span>
+                </h2>
+                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-md">
+                  Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
                 </p>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col gap-8 md:gap-10 lg:mt-16">
+            {services.map((srv, idx) => (
+              <FadeIn key={srv.title} delay={idx * 100}>
+                <div className="group border-t border-slate-800 pt-8 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start hover:border-primary/50 transition-colors duration-500">
+                  <div className="w-14 h-14 shrink-0 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+                    <srv.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-3 group-hover:text-primary transition-colors">{srv.title}</h3>
+                    <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                      {srv.description}
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
@@ -217,10 +230,9 @@ function Products() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-white relative">
-      <span id="products" className="absolute top-[-80px]" />
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="mb-12">
+    <section className="bg-slate-50 relative">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-16 md:py-24">
+        <div id="products" className="mb-12 scroll-mt-24">
           <FadeIn>
             <div className="inline-flex items-center gap-3 mb-2">
               <div className="w-8 h-[2px] bg-primary"></div>
@@ -263,15 +275,15 @@ function Products() {
 
 function Promise() {
   return (
-    <section className="py-16 bg-slate-50 border-y border-slate-100">
+    <section className="py-20 md:py-24 bg-white border-b border-slate-100">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-slate-100 relative overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-100 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
           <FadeIn className="max-w-xl relative z-10">
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
               A Partner, Not Just A Supplier.
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
             </p>
           </FadeIn>
@@ -310,10 +322,9 @@ function Contact() {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-white relative">
-      <span id="contact" className="absolute top-[-80px]" />
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+    <section className="bg-slate-50 relative">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-16 md:py-24">
+        <div id="contact" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 scroll-mt-24">
           
           <div>
             <FadeIn>
@@ -444,6 +455,23 @@ function Contact() {
 }
 
 export default function HomePage() {
+  useEffect(() => {
+    const scrollToCurrentHash = () => {
+      const sectionId = window.location.hash.slice(1);
+      if (!sectionId) return;
+
+      document.getElementById(sectionId)?.scrollIntoView({ block: 'start' });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToCurrentHash);
+    window.addEventListener('hashchange', scrollToCurrentHash);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('hashchange', scrollToCurrentHash);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
       <Navbar />
