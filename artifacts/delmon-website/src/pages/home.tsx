@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ShieldCheck, Scale, MapPin, Phone, Package, Truck, Info, Mail, Globe } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Scale, Package, Truck, Info, Globe } from 'lucide-react';
+import { Link } from 'wouter';
+import { usePageSetup } from '@/hooks/use-page-setup';
 
 import heroBg from '@/assets/hero-bg.jpg';
 import steelImg from '@/assets/steel.jpg';
@@ -12,7 +14,7 @@ import meshImg from '@/assets/mesh.jpg';
 
 function Hero() {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-100 border-b border-slate-200">
+    <section className="relative pt-32 pb-12 md:pt-36 md:pb-16 overflow-hidden bg-slate-100 border-b border-slate-200">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="max-w-xl">
@@ -39,21 +41,21 @@ function Hero() {
             </FadeIn>
 
             <FadeIn delay={450} className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-sm h-12 px-8 text-sm font-semibold group rounded-md" asChild>
-                <a href="#products">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-sm h-12 px-8 text-sm font-semibold group rounded-md" asChild data-testid="hero-button-materials">
+                <Link href="/products">
                   Explore Materials
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white hover:bg-slate-50 text-foreground border-slate-200 shadow-sm h-12 px-8 text-sm font-semibold rounded-md" asChild>
-                <a href="#contact">Contact Sales</a>
+              <Button size="lg" variant="outline" className="bg-white hover:bg-slate-50 text-foreground border-slate-200 shadow-sm h-12 px-8 text-sm font-semibold rounded-md" asChild data-testid="hero-button-contact">
+                <Link href="/contact">Contact Sales</Link>
               </Button>
             </FadeIn>
           </div>
           
           <div className="relative w-full">
             <FadeIn delay={200}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-square">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] max-h-[500px]">
                 <img 
                   src={heroBg} 
                   alt="Bahrain Construction Skyline" 
@@ -72,9 +74,9 @@ function Hero() {
 
 function Heritage() {
   return (
-    <section className="bg-white relative">
+    <section className="bg-white relative" data-testid="section-heritage">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10 py-16 md:py-24">
-        <div id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center scroll-mt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
             <FadeIn>
               <div className="inline-flex items-center gap-3 mb-2">
@@ -89,7 +91,7 @@ function Heritage() {
             </FadeIn>
             <FadeIn delay={150}>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Since 1974, Delmon Building Materials has been the backbone of monumental construction projects across the Kingdom of Bahrain. Backed by regional sister companies and robust global sourcing networks, we ensure that when you need premium deformed steel, welded wire mesh, white wood, plywood, or MDF, it is delivered to your site with industrial precision.
+                Since 1974, Delmon Building Materials has been the backbone of monumental construction projects across the Kingdom of Bahrain. Backed by regional sister companies and robust global sourcing networks, we ensure that when you need materials, they arrive with industrial precision.
               </p>
             </FadeIn>
             <FadeIn delay={250} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mt-6">
@@ -107,6 +109,12 @@ function Heritage() {
                 <h4 className="font-semibold text-foreground text-lg">At Scale</h4>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed">Capacity for demanding developments.</p>
               </div>
+            </FadeIn>
+            <FadeIn delay={350} className="mt-4">
+              <Link href="/about" className="inline-flex items-center text-primary font-semibold text-sm hover:text-primary/80 transition-colors group" data-testid="link-home-about">
+                Read Our Full Story
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </FadeIn>
           </div>
 
@@ -143,27 +151,27 @@ function Services() {
     {
       icon: Package,
       title: "Material Supply",
-      description: "Consistent, high-volume supply of essential structural materials including deformed steel and premium woods."
+      description: "Consistent, high-volume supply of essential structural materials."
     },
     {
       icon: Globe,
       title: "Global Sourcing",
-      description: "Leveraging our profound global network to source specific grades, ensuring competitive pricing and scale."
+      description: "Leveraging our profound global network to source specific grades."
     },
     {
       icon: Truck,
       title: "Reliable Logistics",
-      description: "Extensive warehousing and robust regional networks guarantee materials are delivered exactly when needed."
+      description: "Extensive warehousing and robust networks guarantee timely delivery."
     },
     {
       icon: Info,
       title: "Expert Guidance",
-      description: "Providing experienced insights on material specifications and optimal selection for challenging environments."
+      description: "Providing experienced insights on material specifications."
     }
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-slate-950 text-slate-50 selection:bg-primary/30">
+    <section className="py-20 md:py-32 bg-primary text-white selection:bg-white/30" data-testid="section-services">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
@@ -171,17 +179,20 @@ function Services() {
             <div className="lg:sticky lg:top-32">
               <FadeIn>
                 <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-8 h-[2px] bg-primary"></div>
-                  <span className="text-primary font-semibold tracking-wider text-xs uppercase">
+                  <div className="w-8 h-[2px] bg-white/50"></div>
+                  <span className="text-white/90 font-semibold tracking-wider text-xs uppercase">
                     Capabilities
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-display font-medium leading-tight text-white mb-6">
-                  Industrial Supply <br/><span className="italic text-slate-400">Engineered for Scale</span>
+                  Industrial Supply <br/><span className="italic text-white/80">Engineered for Scale</span>
                 </h2>
-                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-md">
+                <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-md mb-8">
                   Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
                 </p>
+                <Link href="/services" className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-md font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm" data-testid="link-home-services">
+                  View All Services
+                </Link>
               </FadeIn>
             </div>
           </div>
@@ -189,13 +200,13 @@ function Services() {
           <div className="lg:col-span-7 flex flex-col gap-8 md:gap-10 lg:mt-16">
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100}>
-                <div className="group border-t border-slate-800 pt-8 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start hover:border-primary/50 transition-colors duration-500">
-                  <div className="w-14 h-14 shrink-0 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                    <srv.icon className="w-6 h-6 text-primary" />
+                <div className="group border-t border-white/20 pt-8 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start transition-colors duration-500 hover:border-white/40">
+                  <div className="w-14 h-14 shrink-0 bg-black/10 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-500">
+                    <srv.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-3 group-hover:text-primary transition-colors">{srv.title}</h3>
-                    <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2">{srv.title}</h3>
+                    <p className="text-white/80 text-base leading-relaxed">
                       {srv.description}
                     </p>
                   </div>
@@ -214,25 +225,25 @@ function Products() {
   const categories = [
     {
       title: "Deformed Steel",
-      description: "High-yield deformed steel rebar for structural reinforcement, sourced globally to meet strict structural requirements.",
+      description: "High-yield deformed steel rebar for structural reinforcement.",
       image: steelImg,
     },
     {
       title: "Welded Wire Mesh",
-      description: "Precision-welded wire mesh providing superior tensile strength for concrete slabs and precast structures.",
+      description: "Precision-welded wire mesh providing superior tensile strength.",
       image: meshImg,
     },
     {
       title: "Wood, Plywood & MDF",
-      description: "Premium white wood, structural plywood, and MDF tailored for formwork, scaffolding, and high-end finishes.",
+      description: "Premium woods tailored for formwork, scaffolding, and finishes.",
       image: woodImg,
     }
   ];
 
   return (
-    <section className="bg-slate-50 relative">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-16 md:py-24">
-        <div id="products" className="mb-12 scroll-mt-24">
+    <section className="bg-slate-50 relative py-16 md:py-24" data-testid="section-products">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <FadeIn>
             <div className="inline-flex items-center gap-3 mb-2">
               <div className="w-8 h-[2px] bg-primary"></div>
@@ -243,6 +254,11 @@ function Products() {
             <h2 className="text-3xl md:text-4xl font-display font-medium leading-tight text-foreground">
               Core Materials for <br/><span className="italic text-muted-foreground">Serious Construction</span>
             </h2>
+          </FadeIn>
+          <FadeIn delay={150}>
+            <Button variant="outline" className="border-slate-300 text-foreground hover:bg-slate-100" asChild data-testid="link-home-products">
+              <Link href="/products">View All Inventory</Link>
+            </Button>
           </FadeIn>
         </div>
 
@@ -275,21 +291,23 @@ function Products() {
 
 function Promise() {
   return (
-    <section className="py-20 md:py-24 bg-white border-b border-slate-100">
+    <section className="py-16 md:py-20 bg-primary text-white" data-testid="section-promise">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-100 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
-          <FadeIn className="max-w-xl relative z-10">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 border border-white/20 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/5" />
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <FadeIn className="max-w-2xl relative z-10">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-white mb-4">
               A Partner, Not Just A Supplier.
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-white/80 leading-relaxed">
               We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
             </p>
           </FadeIn>
           <FadeIn delay={200} className="shrink-0 w-full md:w-auto relative z-10">
-            <Button size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white rounded-md font-semibold px-8 h-12 shadow-sm" asChild>
-              <a href="#contact">Discuss Your Project</a>
+            <Button size="lg" className="w-full md:w-auto bg-white hover:bg-slate-100 text-primary rounded-md font-semibold px-8 h-12 shadow-sm" asChild data-testid="link-home-promise">
+              <Link href="/contact">Discuss Your Project</Link>
             </Button>
           </FadeIn>
         </div>
@@ -298,179 +316,8 @@ function Promise() {
   );
 }
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`${formData.subject} - Inquiry from ${formData.name} (${formData.company})`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Company: ${formData.company}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    window.location.href = `mailto:delmon@jalal.com?subject=${subject}&body=${body}`;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  return (
-    <section className="bg-slate-50 relative">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-16 md:py-24">
-        <div id="contact" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 scroll-mt-24">
-          
-          <div>
-            <FadeIn>
-              <div className="inline-flex items-center gap-3 mb-2">
-                <div className="w-8 h-[2px] bg-primary"></div>
-                <span className="text-primary font-semibold tracking-wider text-xs uppercase">
-                  Contact Us
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-6">
-                Request a Quote
-              </h2>
-              <p className="text-base text-muted-foreground mb-10 leading-relaxed max-w-md">
-                Connect with our procurement specialists to discuss your project requirements, specifications, and volume needs.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={150}>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm mb-1">Headquarters</h4>
-                    <address className="not-italic text-muted-foreground leading-relaxed text-sm">
-                      P.O. Box 20069<br />
-                      Manama, Kingdom of Bahrain<br />
-                      CR No. 56425
-                    </address>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm mb-1">Phone & Fax</h4>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      Tel: +973 17400508 / 17400509<br />
-                      Fax: +973 17400507
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-primary shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm mb-1">Email</h4>
-                    <a href="mailto:delmon@jalal.com" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                      delmon@jalal.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={300}>
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label htmlFor="name" className="text-xs font-semibold text-foreground uppercase tracking-wide">Full Name</label>
-                    <input 
-                      type="text" 
-                      id="name"
-                      name="name" 
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full h-11 px-3 border border-slate-200 rounded-md bg-slate-50/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all text-sm"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="company" className="text-xs font-semibold text-foreground uppercase tracking-wide">Company</label>
-                    <input 
-                      type="text" 
-                      id="company"
-                      name="company" 
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full h-11 px-3 border border-slate-200 rounded-md bg-slate-50/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all text-sm"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label htmlFor="subject" className="text-xs font-semibold text-foreground uppercase tracking-wide">Material Required</label>
-                  <input 
-                    type="text" 
-                    id="subject"
-                    name="subject" 
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full h-11 px-3 border border-slate-200 rounded-md bg-slate-50/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all text-sm"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-xs font-semibold text-foreground uppercase tracking-wide">Message</label>
-                  <textarea 
-                    id="message"
-                    name="message" 
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full p-3 border border-slate-200 rounded-md bg-slate-50/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all text-sm resize-none"
-                    required
-                  ></textarea>
-                </div>
-
-                <Button type="submit" size="lg" className="w-full rounded-md h-12 bg-primary hover:bg-primary/90 text-white font-semibold text-sm group mt-2 shadow-sm">
-                  Submit
-                </Button>
-              </form>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function HomePage() {
-  useEffect(() => {
-    const scrollToCurrentHash = () => {
-      const sectionId = window.location.hash.slice(1);
-      if (!sectionId) return;
-
-      document.getElementById(sectionId)?.scrollIntoView({ block: 'start' });
-    };
-
-    const frame = window.requestAnimationFrame(scrollToCurrentHash);
-    window.addEventListener('hashchange', scrollToCurrentHash);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener('hashchange', scrollToCurrentHash);
-    };
-  }, []);
+  usePageSetup("Delmon Building Materials | Kingdom of Bahrain", "A major industrial supplier backing Bahrain's developments and contractors with deformed steel, welded wire mesh, white wood, plywood and MDF since 1974.");
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
@@ -481,7 +328,6 @@ export default function HomePage() {
         <Services />
         <Products />
         <Promise />
-        <Contact />
       </main>
       <Footer />
     </div>

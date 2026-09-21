@@ -1,10 +1,11 @@
 import React from 'react';
 import { Logo } from '@/components/logo';
 import { Phone, Printer, Mail, MapPin, FileText } from 'lucide-react';
+import { Link } from 'wouter';
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground pt-16 pb-8">
+    <footer className="bg-secondary text-secondary-foreground pt-16 pb-8" data-testid="footer">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
           
@@ -23,8 +24,8 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+97317400508" className="hover:text-primary transition-colors block">+973 17400508</a>
-                  <a href="tel:+97317400509" className="hover:text-primary transition-colors block">+973 17400509</a>
+                  <a href="tel:+97317400508" className="hover:text-primary transition-colors block" data-testid="link-phone-1">+973 17400508</a>
+                  <a href="tel:+97317400509" className="hover:text-primary transition-colors block" data-testid="link-phone-2">+973 17400509</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -33,7 +34,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <a href="mailto:delmon@jalal.com" className="hover:text-primary transition-colors">
+                <a href="mailto:delmon@jalal.com" className="hover:text-primary transition-colors" data-testid="link-email">
                   delmon@jalal.com
                 </a>
               </li>
@@ -63,9 +64,10 @@ export function Footer() {
           <div>
             <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-foreground">Navigation</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/80 font-semibold uppercase tracking-wide">
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#products" className="hover:text-primary transition-colors">Products</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Request a Quote</a></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors" data-testid="link-footer-about">About</Link></li>
+              <li><Link href="/products" className="hover:text-primary transition-colors" data-testid="link-footer-products">Products</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors" data-testid="link-footer-services">Services</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors" data-testid="link-footer-contact">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -74,11 +76,12 @@ export function Footer() {
           <p className="text-xs text-secondary-foreground/50 text-center md:text-left">
             &copy; {new Date().getFullYear()} Delmon Building Materials. All rights reserved.<br className="md:hidden" /> A division of Mohamed Jalal & Sons.
           </p>
-          <div className="text-xs text-secondary-foreground/50 flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-            <span>Kingdom of Bahrain</span>
-            <span className="hidden sm:inline">&bull;</span>
-            <a href="https://www.shatha-edelbi.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-medium transition-colors">
-              Designed and developed by SHE
+          <div className="text-xs flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <span className="text-secondary-foreground/50">Kingdom of Bahrain</span>
+            <span className="hidden sm:inline text-secondary-foreground/50">&bull;</span>
+            <a href="https://www.shatha-edelbi.com" target="_blank" rel="noopener noreferrer" className="font-medium" data-testid="link-footer-she">
+              <span className="text-secondary-foreground/50">Designed and developed by </span>
+              <span className="text-primary hover:text-primary/80 transition-colors">SHE</span>
             </a>
           </div>
         </div>
