@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-  <path d="M0 0H18V18H0V0Z" fill="#8B0000" />
-  <path d="M22 0H40V18H22V0Z" fill="#222" />
-  <path d="M0 22H18V40H0V22Z" fill="#222" />
-  <path d="M22 22H31V40H22V22Z" fill="#8B0000" />
-  <path d="M31 22H40V31H31V22Z" fill="#666" />
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top left red square -->
+  <rect x="0" y="0" width="30" height="30" fill="#A3333D" />
+  
+  <!-- Top right red shape (looks like a triangle pointing down-left) -->
+  <path d="M34 0 H64 V30 Z" fill="#A3333D" />
+  
+  <!-- Bottom left grey shape -->
+  <path d="M0 34 H30 V64 Z" fill="#85898C" />
+  
+  <!-- Bottom right grey shape with white space -->
+  <path d="M34 34 H64 V64 L34 34 Z" fill="#85898C" />
 </svg>

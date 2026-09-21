@@ -11,14 +11,14 @@ export function Footer() {
           {/* Brand Col */}
           <div className="lg:col-span-1 flex flex-col gap-6">
             <Logo variant="white" />
-            <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-xs">
+            <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-xs font-light">
               Part of the Mohamed Jalal & Sons group. Supporting Bahrain’s growth with premium deformed steel, white wood, and plywood since 1974.
             </p>
           </div>
 
           {/* Contact Col */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 uppercase tracking-wider">Contact Us</h4>
+            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Contact Us</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Address Col */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 uppercase tracking-wider">Address</h4>
+            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Address</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -61,11 +61,10 @@ export function Footer() {
 
           {/* Links Col */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 uppercase tracking-wider">Navigation</h4>
-            <ul className="space-y-3 text-sm text-secondary-foreground/80">
+            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Navigation</h4>
+            <ul className="space-y-3 text-sm text-secondary-foreground/80 font-bold uppercase tracking-wide">
               <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#products" className="hover:text-primary transition-colors">Products & Materials</a></li>
-              <li><a href="#scale" className="hover:text-primary transition-colors">Global Sourcing</a></li>
+              <li><a href="#products" className="hover:text-primary transition-colors">Materials</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Request a Quote</a></li>
             </ul>
           </div>
@@ -75,8 +74,12 @@ export function Footer() {
           <p className="text-xs text-secondary-foreground/50 text-center md:text-left">
             &copy; {new Date().getFullYear()} Delmon Building Materials. All rights reserved.<br className="md:hidden" /> A division of Mohamed Jalal & Sons.
           </p>
-          <div className="text-xs text-secondary-foreground/50">
-            Kingdom of Bahrain
+          <div className="text-xs text-secondary-foreground/50 flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <span>Kingdom of Bahrain</span>
+            <span className="hidden sm:inline">&bull;</span>
+            <a href="https://www.shatha-edelbi.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              Designed and developed by SHE
+            </a>
           </div>
         </div>
       </div>

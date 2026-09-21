@@ -20,6 +20,16 @@ export function useIntersectionObserver(options = {}) {
 export function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) {
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const listener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', listener);
+    return () => mediaQuery.removeEventListener('change', listener);
+  }, []);
 
   useEffect(() => {
     if (!ref) return;
@@ -41,9 +51,9 @@ export function FadeIn({ children, delay = 0, className = "" }: { children: Reac
       ref={setRef}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
-        transition: `opacity 700ms ease-out ${delay}ms, transform 700ms ease-out ${delay}ms`,
+        opacity: isVisible || prefersReducedMotion ? 1 : 0,
+        transform: isVisible || prefersReducedMotion ? 'translateY(0)' : 'translateY(24px)',
+        transition: prefersReducedMotion ? 'none' : `opacity 700ms ease-out ${delay}ms, transform 700ms ease-out ${delay}ms`,
       }}
     >
       {children}
