@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Delmon Building Materials"
+description = "A professional corporate website for Delmon Building Materials in Bahrain, presenting the company story, steel and wood product range, regional strength, project experience, and direct sales enquiry options."
+version = "1.0.0"
+id = "artifacts/delmon-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21651
+
+[services.development]
+run = "pnpm --filter @workspace/delmon-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/delmon-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/delmon-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21651"
+BASE_PATH = "/"
