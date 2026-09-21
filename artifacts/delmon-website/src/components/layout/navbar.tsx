@@ -25,13 +25,13 @@ export function Navbar() {
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled 
-          ? "bg-white/95 backdrop-blur-md border-border py-3 shadow-sm" 
-          : "bg-white border-transparent py-5"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border py-2" 
+          : "bg-white py-4"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex items-center justify-between">
         <a href="#" className="focus:outline-none focus-visible:ring-2 ring-primary">
           <Logo />
         </a>
@@ -42,12 +42,12 @@ export function Navbar() {
             <a 
               key={link.label} 
               href={link.href}
-              className="text-sm font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-semibold tracking-wide uppercase text-muted-foreground hover:text-primary transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <Button asChild className="rounded-none bg-primary hover:bg-primary/90 text-white font-bold px-6 h-12">
+          <Button asChild className="rounded-md bg-primary hover:bg-primary/90 text-white font-semibold px-6 h-11">
             <a href="#contact">Request Quote</a>
           </Button>
         </nav>
@@ -69,19 +69,19 @@ export function Navbar() {
           mobileMenuOpen ? "max-h-96 border-border" : "max-h-0 border-transparent"
         )}
       >
-        <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
+        <nav className="max-w-[1200px] mx-auto px-4 py-4 flex flex-col gap-2">
           {navLinks.map((link) => (
             <a 
               key={link.label} 
               href={link.href}
-              className="text-base font-bold uppercase tracking-wider text-foreground p-4 border-b border-border/50 hover:bg-muted/50 transition-colors"
+              className="text-sm font-semibold uppercase tracking-wide text-foreground p-4 border-b border-border/50 hover:bg-slate-50 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
             </a>
           ))}
           <div className="p-4 pt-6">
-            <Button asChild className="rounded-none w-full h-12 font-bold text-lg bg-primary text-primary-foreground" onClick={() => setMobileMenuOpen(false)}>
+            <Button asChild className="rounded-md w-full h-11 font-semibold text-base bg-primary text-primary-foreground" onClick={() => setMobileMenuOpen(false)}>
               <a href="#contact">Request Quote</a>
             </Button>
           </div>

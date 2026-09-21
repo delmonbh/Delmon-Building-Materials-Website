@@ -5,20 +5,20 @@ import { Phone, Printer, Mail, MapPin, FileText } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
           
           {/* Brand Col */}
           <div className="lg:col-span-1 flex flex-col gap-6">
             <Logo variant="white" />
-            <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-xs font-light">
+            <p className="text-secondary-foreground/70 text-sm leading-relaxed max-w-xs font-sans">
               Part of the Mohamed Jalal & Sons group. Supporting Bahrain’s growth with premium deformed steel, white wood, and plywood since 1974.
             </p>
           </div>
 
           {/* Contact Col */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Contact Us</h4>
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Contact Us</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Address Col */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Address</h4>
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Address</h4>
             <ul className="space-y-4 text-sm text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -61,8 +61,8 @@ export function Footer() {
 
           {/* Links Col */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-6 uppercase tracking-wider text-white">Navigation</h4>
-            <ul className="space-y-3 text-sm text-secondary-foreground/80 font-bold uppercase tracking-wide">
+            <h4 className="font-display font-medium text-lg mb-6 uppercase tracking-wider text-white">Navigation</h4>
+            <ul className="space-y-3 text-sm text-secondary-foreground/80 font-semibold uppercase tracking-wide">
               <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
               <li><a href="#products" className="hover:text-primary transition-colors">Materials</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Request a Quote</a></li>
