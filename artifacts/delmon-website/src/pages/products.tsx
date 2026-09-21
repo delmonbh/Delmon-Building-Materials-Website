@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
+import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
@@ -58,25 +59,14 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
       <Navbar />
-      <main className="flex-grow pt-24 md:pt-32 pb-16 md:pb-24">
+      <main className="flex-grow pb-16 md:pb-24">
         
-        <section className="max-w-[1200px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
-          <FadeIn>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-primary"></div>
-              <span className="text-primary font-semibold tracking-wider text-xs uppercase">
-                Inventory
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.1] mb-6">
-              Materials for <br />
-              <span className="italic text-muted-foreground">Serious Construction</span>
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              We stock and supply the critical components necessary for industrial and commercial development. Every material is vetted for quality, consistency, and compliance with rigorous engineering standards.
-            </p>
-          </FadeIn>
-        </section>
+        <PageHeader 
+          subtitle="Inventory"
+          title={<>Materials for <br /><span className="italic text-muted-foreground">Serious Construction</span></>}
+          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, white wood, plywood, and MDF."
+          image={steelImg}
+        />
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 space-y-24 md:space-y-32" data-testid="section-products-list">
           {categories.map((cat, idx) => (
@@ -84,14 +74,16 @@ export default function ProductsPage() {
               
               <div className="w-full lg:w-1/2 relative">
                 <FadeIn delay={100}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3] group">
+                  <div className="relative rounded-none bg-slate-50 overflow-hidden shadow-2xl shadow-black/5 aspect-[4/3] group border-[8px] border-white">
                     <img 
                       src={cat.image} 
                       alt={cat.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 border border-black/10 rounded-2xl pointer-events-none"></div>
+                    <div className="absolute inset-0 border border-black/5 pointer-events-none"></div>
                   </div>
+                  {/* Architectural box accent */}
+                  <div className={`absolute -bottom-6 ${idx % 2 === 1 ? '-left-6' : '-right-6'} w-32 h-32 bg-primary/5 -z-10`}></div>
                 </FadeIn>
               </div>
 
@@ -107,17 +99,17 @@ export default function ProductsPage() {
                     {cat.description}
                   </p>
                   
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-10">
                     {cat.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0"></div>
-                        <span className="text-foreground">{feature}</span>
+                      <li key={i} className="flex items-start gap-4">
+                        <div className="w-1.5 h-1.5 bg-primary mt-2.5 shrink-0"></div>
+                        <span className="text-foreground/90 text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <Button asChild className="bg-primary hover:bg-primary/90 text-white shadow-sm h-11 px-8 text-sm font-semibold rounded-md" data-testid={`button-inquire-${cat.id}`}>
-                    <Link href="/contact">
+                  <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-none h-12 px-8 text-sm font-semibold tracking-wide" data-testid={`button-inquire-${cat.id}`}>
+                    <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
                       Inquire About {cat.title}
                     </Link>
                   </Button>

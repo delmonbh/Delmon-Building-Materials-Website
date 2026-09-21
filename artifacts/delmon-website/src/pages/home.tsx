@@ -161,7 +161,7 @@ function Services() {
     {
       icon: Truck,
       title: "Reliable Logistics",
-      description: "Extensive warehousing and robust networks guarantee timely delivery."
+      description: "Warehousing and delivery coordination aligned with project requirements."
     },
     {
       icon: Info,
