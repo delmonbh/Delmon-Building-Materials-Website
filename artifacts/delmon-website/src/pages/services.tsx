@@ -8,6 +8,7 @@ import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import meshImg from '@/assets/mesh.jpg';
+import servicesHeaderImg from '@/assets/services-header.jpg';
 
 export default function ServicesPage() {
   usePageSetup("Services | Delmon Building Materials", "Comprehensive procurement and logistics solutions tailored for serious contractors in Bahrain.");
@@ -60,7 +61,7 @@ export default function ServicesPage() {
           subtitle="Capabilities"
           title={<>Industrial Supply <br /><span className="italic text-muted-foreground">Engineered for Scale</span></>}
           description="We provide comprehensive procurement and logistics solutions tailored for contractors who cannot afford delays. We handle the complexity of the global supply chain so you can focus entirely on building."
-          image={meshImg}
+          image={servicesHeaderImg}
         />
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8">

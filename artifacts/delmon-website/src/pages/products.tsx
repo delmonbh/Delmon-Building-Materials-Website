@@ -10,6 +10,7 @@ import { usePageSetup } from '@/hooks/use-page-setup';
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
+import productsHeaderImg from '@/assets/products-header.jpg';
 
 export default function ProductsPage() {
   usePageSetup("Products | Delmon Building Materials", "Explore our premium inventory of deformed steel, welded wire mesh, white wood, plywood, and MDF for serious contractors.");
@@ -65,7 +66,7 @@ export default function ProductsPage() {
           subtitle="Inventory"
           title={<>Materials for <br /><span className="italic text-muted-foreground">Serious Construction</span></>}
           description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, white wood, plywood, and MDF."
-          image={steelImg}
+          image={productsHeaderImg}
         />
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 space-y-24 md:space-y-32" data-testid="section-products-list">
