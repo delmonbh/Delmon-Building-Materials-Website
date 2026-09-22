@@ -14,10 +14,10 @@ import meshImg from '@/assets/mesh.jpg';
 
 function Hero() {
   return (
-    <section className="relative pt-32 pb-12 md:pt-36 md:pb-16 overflow-hidden bg-slate-100 border-b border-slate-200">
+    <section className="relative pt-24 pb-12 md:pt-36 md:pb-16 overflow-hidden bg-slate-100 border-b border-slate-200">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="max-w-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+          <div className="max-w-xl order-2 lg:order-1">
             <FadeIn>
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="w-8 h-[2px] bg-primary"></div>
@@ -53,9 +53,9 @@ function Hero() {
             </FadeIn>
           </div>
           
-          <div className="relative w-full">
+          <div className="relative w-full order-1 lg:order-2">
             <FadeIn delay={200}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] max-h-[500px]">
+              <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl aspect-[16/10] lg:aspect-[4/3] max-h-[500px]">
                 <img 
                   src={heroBg} 
                   alt="Bahrain Construction Skyline" 
@@ -94,7 +94,23 @@ function Heritage() {
                 Since 1974, Delmon Building Materials has been the backbone of monumental construction projects across the Kingdom of Bahrain. Backed by regional sister companies and robust global sourcing networks, we ensure that when you need materials, they arrive with industrial precision.
               </p>
             </FadeIn>
-            <FadeIn delay={250} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mt-6">
+            <FadeIn delay={250} className="sm:hidden mt-4 border-y border-slate-200">
+              <div className="grid grid-cols-[3rem_1fr] gap-4 py-6 border-b border-slate-200">
+                <span className="text-3xl font-display text-primary leading-none">01</span>
+                <div>
+                  <h4 className="font-display font-medium text-foreground text-xl mb-2">Dependable</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Decades of proven reliability.</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_1fr] gap-4 py-6">
+                <span className="text-3xl font-display text-primary leading-none">02</span>
+                <div>
+                  <h4 className="font-display font-medium text-foreground text-xl mb-2">At Scale</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Capacity for demanding developments.</p>
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn delay={250} className="hidden sm:grid grid-cols-2 gap-6 md:gap-8 mt-6">
               <div className="flex flex-col gap-3">
                 <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center mb-1">
                   <ShieldCheck className="w-6 h-6 text-primary" />
@@ -120,7 +136,7 @@ function Heritage() {
 
           <div className="lg:col-span-5 lg:col-start-8 relative">
             <FadeIn>
-              <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 md:p-10 shadow-sm relative z-10">
+              <div className="bg-slate-50 border border-slate-200 border-l-4 border-l-primary rounded-none md:rounded-2xl p-6 md:p-10 shadow-sm relative z-10">
                 <h3 className="text-2xl font-display font-medium text-foreground mb-3">
                   Five Decades of Excellence
                 </h3>

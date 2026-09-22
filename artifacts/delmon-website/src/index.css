@@ -115,3 +115,12 @@
     @apply font-display;
   }
 }
+
+@media (max-width: 767px) {
+  p,
+  address,
+  main li {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
