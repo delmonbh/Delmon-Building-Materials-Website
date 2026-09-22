@@ -11,8 +11,8 @@ interface PageHeaderProps {
 export function PageHeader({ title, subtitle, description, image }: PageHeaderProps) {
   return (
     <header className="pt-20 sm:pt-24 md:pt-32 pb-8 md:pb-12 mb-16 md:mb-24">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12 md:mb-16">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col">
+        <div className="order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mt-8 lg:mt-0 mb-12 md:mb-16">
           <div className="lg:col-span-7">
             <FadeIn>
               <div className="inline-flex items-center gap-3 mb-6">
@@ -35,7 +35,7 @@ export function PageHeader({ title, subtitle, description, image }: PageHeaderPr
           </div>
         </div>
         
-        <FadeIn delay={300}>
+        <FadeIn delay={300} className="order-1 lg:order-2">
           <div className="w-full h-[300px] md:h-[500px] relative bg-muted group">
             <img 
               src={image} 
