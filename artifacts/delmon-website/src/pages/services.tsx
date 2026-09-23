@@ -74,8 +74,8 @@ export default function ServicesPage() {
                 <div
                   className={`group h-full min-h-[390px] rounded-[2rem] p-8 lg:p-9 border border-white/10 hover:shadow-xl hover:shadow-[#363638]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden ${
                     idx % 2 === 0
-                      ? "bg-[linear-gradient(150deg,#823d46_0%,#664449_40%,#34383b_100%)]"
-                      : "bg-[linear-gradient(150deg,#747173_0%,#625d5f_40%,#34383b_100%)]"
+                      ? "bg-[linear-gradient(150deg,#AE4951_0%,#A94D55_60%,#8F555A_82%,#59595B_100%)]"
+                      : "bg-[linear-gradient(150deg,#6F6F6F_0%,#707072_65%,#656668_84%,#535557_100%)]"
                   }`}
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
@@ -97,7 +97,7 @@ export default function ServicesPage() {
                     {srv.description}
                   </p>
 
-                  <ul className="space-y-4 bg-[#25282b]/25 rounded-2xl p-5 sm:p-6 border border-[#d3b2b4]/70 relative z-10">
+                  <ul className="space-y-4 bg-white/[0.06] rounded-2xl p-5 sm:p-6 border border-[#e0cbcd]/60 relative z-10">
                     {srv.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-4 text-left">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#edbfc2] mt-2 shrink-0"></div>
