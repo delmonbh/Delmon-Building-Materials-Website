@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { ArrowRight, DraftingCompass, Globe2, Layers3, Truck } from 'lucide-react';
+import { ArrowUpRight, DraftingCompass, Globe2, Layers3, Truck } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import servicesHeaderImg from '@/assets/services-header.jpg';
 
@@ -113,22 +113,40 @@ export default function ServicesPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
-            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border-2 border-[#6f6f6f]">
-              
-              <div className="relative z-10 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Ready to streamline your supply chain?</h3>
-                <p className="text-neutral-600 text-lg md:text-xl leading-relaxed font-light">
-                  Engage with our procurement specialists to discuss your upcoming project timeline and volume requirements.
+            <div className="grid lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,.75fr)] overflow-hidden rounded-[2rem] bg-[#f3f3f3]">
+              <div className="px-8 py-12 sm:p-12 lg:px-16 lg:py-16">
+                <div className="flex items-center gap-3 mb-7">
+                  <span className="h-px w-8 bg-[#AE4951]" />
+                  <span className="text-xs font-semibold uppercase tracking-[.18em] text-[#AE4951]">Let&apos;s work together</span>
+                </div>
+                <h3 className="max-w-[38rem] font-display text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.08] text-foreground mb-6">
+                  Built for the work ahead.<br />
+                  <span className="italic text-[#AE4951]">Let&apos;s talk supply.</span>
+                </h3>
+                <p className="max-w-lg text-base md:text-lg leading-relaxed text-[#595959] mb-9" style={{ textAlign: "left" }}>
+                  Tell us about your project timeline and material requirements. Our procurement team is ready to discuss your options.
                 </p>
-              </div>
-              
-              <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Button asChild size="lg" className="w-full md:w-auto bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white border border-[#AE4951] rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-sm hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
+                <Button asChild size="lg" className="h-14 rounded-full bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white px-8 font-semibold shadow-sm transition-colors" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
+              </div>
+
+              <div className="relative flex flex-col justify-center bg-[#e5e5e5] px-8 py-10 sm:p-12 lg:px-12 overflow-hidden">
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#AE4951]" aria-hidden="true" />
+                <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
+                <div className="absolute -right-10 -top-14 h-44 w-44 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
+                <span className="relative text-xs font-semibold uppercase tracking-[.18em] text-[#AE4951] mb-6">From plan to site</span>
+                <div className="relative divide-y divide-[#c8c8c8]">
+                  {["Material sourcing", "Supply planning", "Delivery coordination"].map((step, index) => (
+                    <div key={step} className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
+                      <span className="font-display text-2xl text-[#AE4951]">0{index + 1}</span>
+                      <span className="font-display text-xl text-[#484848]">{step}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </FadeIn>
