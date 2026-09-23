@@ -3,7 +3,7 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Package, Truck, Info, Globe } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Package, Truck, Info, Globe } from 'lucide-react';
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
 
@@ -265,23 +265,32 @@ function Products() {
 
 function Promise() {
   return (
-    <section className="py-16 md:py-20 bg-primary text-white" data-testid="section-promise">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-neutral-100 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-black/10">
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/40 rounded-full blur-3xl pointer-events-none" />
-          
-          <FadeIn className="max-w-2xl relative z-10">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">
-              A Partner, Not Just A Supplier.
+    <section className="relative overflow-hidden bg-[#eeeeee] py-20 md:py-28" data-testid="section-promise">
+      <div className="absolute left-0 right-0 top-0 h-1 bg-[#AE4951]" aria-hidden="true" />
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative">
+        <div className="flex items-center gap-5 mb-10 md:mb-14">
+          <span className="text-xs font-semibold tracking-[.18em] uppercase text-[#AE4951] whitespace-nowrap">The Delmon promise</span>
+          <span className="h-px w-full bg-[#d0d0d0]" aria-hidden="true" />
+        </div>
+        <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-10 lg:gap-24 items-end">
+          <FadeIn>
+            <h2 className="font-display text-[2.75rem] sm:text-5xl md:text-6xl leading-[1.08] text-[#414141]">
+              A partner.<br />
+              <span className="italic text-[#AE4951]">Not just a supplier.</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
-            </p>
           </FadeIn>
-          <FadeIn delay={200} className="shrink-0 w-full md:w-auto relative z-10">
-            <Button size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white rounded-md font-semibold px-8 h-12 shadow-sm" asChild data-testid="link-home-promise">
-              <Link href="/contact">Discuss Your Project</Link>
-            </Button>
+          <FadeIn delay={150}>
+            <div className="border-l-2 border-[#AE4951] pl-6 md:pl-8">
+              <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-7" style={{ textAlign: "left" }}>
+                We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
+              </p>
+              <Button size="lg" className="bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white rounded-full font-semibold px-7 h-12 shadow-sm" asChild data-testid="link-home-promise">
+                <Link href="/contact">
+                  Discuss Your Project
+                  <ArrowUpRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
           </FadeIn>
         </div>
       </div>
