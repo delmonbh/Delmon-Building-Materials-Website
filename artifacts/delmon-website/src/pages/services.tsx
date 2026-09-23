@@ -68,7 +68,7 @@ export default function ServicesPage() {
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100} className="h-full">
                 <div 
-                  className="group h-full bg-[#7d333e] rounded-[2rem] p-8 lg:p-10 border border-[#632832] hover:shadow-xl hover:shadow-[#632832]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden" 
+                  className="group h-full bg-[#AE4951] rounded-[2rem] p-8 lg:p-10 border border-[#8d343d] hover:shadow-xl hover:shadow-[#8d343d]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden" 
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
