@@ -26,7 +26,6 @@ export function Navbar() {
     { label: 'About', href: '/about' },
     { label: 'Products', href: '/products' },
     { label: 'Services', href: '/services' },
-    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -60,7 +59,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button asChild className="rounded-md bg-primary hover:bg-primary/90 text-white font-semibold px-6 h-11" data-testid="button-request-quote-desktop">
-            <Link href="/contact">Request Quote</Link>
+            <Link href="/contact">Request a Quotation</Link>
           </Button>
         </nav>
 
@@ -98,7 +97,7 @@ export function Navbar() {
           ))}
           <div className="p-4 pt-6">
             <Button asChild className="rounded-md w-full h-11 font-semibold text-base bg-primary text-primary-foreground" data-testid="button-request-quote-mobile">
-              <Link href="/contact">Request Quote</Link>
+              <Link href="/contact">Request a Quotation</Link>
             </Button>
           </div>
         </nav>

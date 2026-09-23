@@ -10,9 +10,9 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle, description, image }: PageHeaderProps) {
   return (
-    <header className="pt-20 sm:pt-24 md:pt-32 pb-8 md:pb-12 mb-16 md:mb-24">
+    <header className="pt-[94px] pb-8 md:pb-12 mb-12 md:mb-20">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col">
-        <div className="order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mt-8 lg:mt-0 mb-12 md:mb-16">
+        <div className="order-2 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mt-8 md:mt-12">
           <div className="lg:col-span-7">
             <FadeIn>
               <div className="inline-flex items-center gap-3 mb-6">
@@ -35,8 +35,8 @@ export function PageHeader({ title, subtitle, description, image }: PageHeaderPr
           </div>
         </div>
         
-        <FadeIn delay={300} className="order-1 lg:order-2">
-          <div className="w-full h-[300px] md:h-[500px] relative bg-muted group">
+        <FadeIn delay={300} className="order-1">
+          <div className="w-full h-[300px] md:h-[460px] relative bg-muted group overflow-hidden rounded-2xl md:rounded-3xl">
             <img 
               src={image} 
               alt={typeof title === 'string' ? title : subtitle} 
@@ -46,7 +46,7 @@ export function PageHeader({ title, subtitle, description, image }: PageHeaderPr
             <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-slate-900/20 to-transparent pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-24 md:w-48 h-1 md:h-2 bg-primary z-10"></div>
-            <div className="absolute inset-0 border-[1px] border-black/10 pointer-events-none"></div>
+            <div className="absolute inset-0 border border-black/10 rounded-2xl md:rounded-3xl pointer-events-none"></div>
           </div>
         </FadeIn>
       </div>

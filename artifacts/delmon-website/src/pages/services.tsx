@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import meshImg from '@/assets/mesh.jpg';
 import servicesHeaderImg from '@/assets/services-header.jpg';
 
 export default function ServicesPage() {
@@ -64,48 +63,37 @@ export default function ServicesPage() {
           image={servicesHeaderImg}
         />
 
-        <section className="max-w-[1200px] mx-auto px-4 md:px-8">
-          <div className="space-y-0 border-t border-border" data-testid="section-services-list">
+        <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" data-testid="section-services-list">
             {services.map((srv, idx) => (
-              <FadeIn key={srv.title} delay={idx * 100}>
+              <FadeIn key={srv.title} delay={idx * 100} className="h-full">
                 <div 
-                  className="group relative py-12 md:py-20 border-b border-border transition-colors hover:bg-slate-50/50" 
-                  data-testid={`service-row-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group h-full bg-white rounded-[2rem] p-8 lg:p-10 border border-slate-100 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col relative overflow-hidden" 
+                  data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <div className="absolute left-0 top-0 h-full w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500"></div>
+                  <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-700 pointer-events-none"></div>
                   
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start pl-4 md:pl-8">
-                    
-                    {/* Service number and title */}
-                    <div className="lg:col-span-4 flex flex-col items-start">
-                      <div className="flex items-end gap-4 mb-8">
-                        <span className="text-6xl md:text-8xl font-display font-light leading-none text-slate-200 group-hover:text-primary transition-colors duration-500">
-                          0{idx + 1}
-                        </span>
-                        <span className="h-px w-10 bg-primary mb-3 origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-500" />
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4 group-hover:translate-x-2 transition-transform duration-500">
-                        {srv.title}
-                      </h2>
-                    </div>
-
-                    {/* Description & Details */}
-                    <div className="lg:col-span-8 flex flex-col md:flex-row gap-8 lg:gap-16 lg:mt-4">
-                      <p className="flex-1 text-lg text-muted-foreground leading-relaxed">
-                        {srv.description}
-                      </p>
-                      
-                      <ul className="flex-1 space-y-4">
-                        {srv.details.map((detail, i) => (
-                          <li key={i} className="flex items-start gap-4">
-                            <div className="w-1.5 h-1.5 bg-primary/40 mt-2.5 shrink-0"></div>
-                            <span className="text-base text-foreground/80 leading-relaxed">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-8 relative z-10">
+                    <span className="text-5xl lg:text-6xl font-display font-light text-slate-200 group-hover:text-primary transition-colors duration-500">
+                      0{idx + 1}
+                    </span>
+                    <h2 className="text-2xl lg:text-3xl font-display font-medium text-foreground">
+                      {srv.title}
+                    </h2>
                   </div>
+
+                  <p className="text-lg text-slate-600 leading-relaxed mb-8 flex-1 relative z-10">
+                    {srv.description}
+                  </p>
+                  
+                  <ul className="space-y-4 bg-slate-50 rounded-2xl p-6 border border-slate-100 relative z-10">
+                    {srv.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0"></div>
+                        <span className="text-sm font-medium text-slate-700 leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </FadeIn>
             ))}
@@ -114,18 +102,18 @@ export default function ServicesPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
-            <div className="bg-primary text-primary-foreground p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent pointer-events-none"></div>
+            <div className="bg-slate-900 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border border-slate-800">
+              <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800/40 to-transparent pointer-events-none"></div>
               
               <div className="relative z-10 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-display font-medium mb-4">Ready to streamline your supply chain?</h3>
-                <p className="text-primary-foreground/80 text-lg md:text-xl leading-relaxed font-light">
+                <h3 className="text-3xl md:text-4xl font-display font-medium text-white mb-4">Ready to streamline your supply chain?</h3>
+                <p className="text-slate-300 text-lg md:text-xl leading-relaxed font-light">
                   Engage with our procurement specialists to discuss your upcoming project timeline and volume requirements.
                 </p>
               </div>
               
               <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Button asChild size="lg" className="w-full md:w-auto bg-white hover:bg-slate-100 text-primary rounded-none font-semibold px-10 h-14 tracking-wide shadow-xl hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
+                <Button asChild size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-xl hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
                     <ArrowRight className="ml-2 w-5 h-5" />

@@ -20,39 +20,18 @@ export default function ProductsPage() {
       id: "steel",
       title: "Deformed Steel",
       subtitle: "High-Yield Structural Reinforcement",
-      description: "Our deformed steel rebar is sourced through established international supplier relationships for structural reinforcement applications across commercial and industrial construction.",
-      features: [
-        "Suitable for structural reinforcement applications",
-        "Deformed profile supports concrete bonding",
-        "Available for varied project requirements",
-        "Sourced through Delmon's global network"
-      ],
       image: steelImg,
     },
     {
       id: "mesh",
       title: "Welded Wire Mesh",
       subtitle: "Precision-Welded Reinforcement",
-      description: "Welded wire mesh supports reinforcement requirements for concrete slabs, flooring, and precast applications, with a regular grid format that assists efficient installation.",
-      features: [
-        "Regular welded grid configuration",
-        "Suitable for slabs and precast applications",
-        "Available for varied project specifications",
-        "Practical format for site installation"
-      ],
       image: meshImg,
     },
     {
       id: "wood",
       title: "Wood, Plywood & MDF",
       subtitle: "Premium Formwork and Finishing Materials",
-      description: "A practical selection of white wood, plywood, and MDF for construction, formwork, scaffolding, and interior finishing applications.",
-      features: [
-        "Plywood options for formwork applications",
-        "MDF for interior finishing and joinery",
-        "White wood for general construction use",
-        "Sourced to suit varied project requirements"
-      ],
       image: woodImg,
     }
   ];
@@ -69,56 +48,44 @@ export default function ProductsPage() {
           image={productsHeaderImg}
         />
 
-        <section className="max-w-[1200px] mx-auto px-4 md:px-8 space-y-24 md:space-y-32" data-testid="section-products-list">
-          {categories.map((cat, idx) => (
-            <div key={cat.id} id={cat.id} className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-16 items-center`} data-testid={`product-section-${cat.id}`}>
-              
-              <div className="w-full lg:w-1/2 relative">
-                <FadeIn delay={100}>
-                  <div className="relative rounded-none bg-slate-50 overflow-hidden shadow-2xl shadow-black/5 aspect-[4/3] group border-[8px] border-white">
+        <section className="max-w-[1200px] mx-auto px-4 md:px-8" data-testid="section-products-list">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {categories.map((cat, idx) => (
+              <FadeIn key={cat.id} delay={idx * 150} className="flex flex-col h-full">
+                <div 
+                  id={cat.id}
+                  data-testid={`product-section-${cat.id}`}
+                  className="group flex flex-col h-full bg-slate-50 rounded-[2rem] p-3 border border-slate-100 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500"
+                >
+                  <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-[1.5rem] overflow-hidden">
                     <img 
                       src={cat.image} 
                       alt={cat.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 border border-black/5 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+                      <span className="text-white/80 font-semibold text-xs uppercase tracking-wider block mb-2">{cat.subtitle}</span>
+                      <h2 className="text-3xl font-display font-medium text-white leading-tight">{cat.title}</h2>
+                    </div>
+                    <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[1.5rem] pointer-events-none"></div>
                   </div>
-                  {/* Architectural box accent */}
-                  <div className={`absolute -bottom-6 ${idx % 2 === 1 ? '-left-6' : '-right-6'} w-32 h-32 bg-primary/5 -z-10`}></div>
-                </FadeIn>
-              </div>
 
-              <div className="w-full lg:w-1/2">
-                <FadeIn delay={200}>
-                  <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-2">
-                    {cat.title}
-                  </h2>
-                  <h3 className="text-primary font-semibold text-sm uppercase tracking-wide mb-6">
-                    {cat.subtitle}
-                  </h3>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                    {cat.description}
-                  </p>
-                  
-                  <ul className="space-y-3 mb-10">
-                    {cat.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-4">
-                        <div className="w-1.5 h-1.5 bg-primary mt-2.5 shrink-0"></div>
-                        <span className="text-foreground/90 text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-none h-12 px-8 text-sm font-semibold tracking-wide" data-testid={`button-inquire-${cat.id}`}>
-                    <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
-                      Inquire About {cat.title}
-                    </Link>
-                  </Button>
-                </FadeIn>
-              </div>
-              
-            </div>
-          ))}
+                  <div className="px-2 pt-3 pb-2">
+                    <Button 
+                      asChild 
+                      className="w-full rounded-xl h-12 bg-white hover:bg-primary text-foreground hover:text-white border border-slate-200 transition-colors" 
+                      data-testid={`button-inquire-${cat.id}`}
+                    >
+                      <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
+                        Inquire About {cat.title}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </section>
 
       </main>
