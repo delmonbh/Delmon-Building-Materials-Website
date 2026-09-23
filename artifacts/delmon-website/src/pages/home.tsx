@@ -76,8 +76,8 @@ function Heritage() {
   return (
     <section className="bg-white py-16 md:py-28" data-testid="section-heritage">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-[.95fr_1.05fr] gap-10 lg:gap-20 items-center">
-          <FadeIn>
+        <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[.95fr_1.05fr] lg:gap-x-20 items-center">
+          <FadeIn className="order-2 lg:order-1 lg:col-start-1 lg:row-span-2 lg:self-center">
             <div className="rounded-3xl bg-[#f0f0f0] border border-[#dedede] p-7 sm:p-8 md:p-9 overflow-hidden relative">
               <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[6rem] pointer-events-none" />
               <div className="relative">
@@ -99,7 +99,7 @@ function Heritage() {
               </div>
             </div>
           </FadeIn>
-          <FadeIn delay={150}>
+          <FadeIn delay={150} className="order-1 lg:order-2 lg:col-start-2 lg:row-start-1 lg:self-end">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-[2px] bg-primary" />
               <span className="text-primary font-semibold tracking-wider text-xs uppercase">Our Heritage</span>
@@ -107,9 +107,11 @@ function Heritage() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.12] mb-7">
               Built on experience.<br /><span className="italic text-muted-foreground">Rooted in Bahrain.</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
               Since 1974, Delmon Building Materials has supported construction across Bahrain with essential structural materials. As a division of Mohamed Jalal &amp; Sons, our long-standing relationships help us respond to varied project needs.
             </p>
+          </FadeIn>
+          <FadeIn delay={225} className="order-3 lg:col-start-2 lg:row-start-2 lg:self-start">
             <Link href="/about" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:text-primary/80 transition-colors group" data-testid="link-home-about">
               Explore Our Story <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
