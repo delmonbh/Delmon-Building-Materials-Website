@@ -102,7 +102,7 @@ export default function ServicesPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
-            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border border-neutral-200">
+            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border-2 border-[#AE4951]">
               
               <div className="relative z-10 max-w-2xl">
                 <h3 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Ready to streamline your supply chain?</h3>
@@ -112,7 +112,7 @@ export default function ServicesPage() {
               </div>
               
               <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Button asChild size="lg" className="w-full md:w-auto bg-neutral-300 hover:bg-neutral-400 text-neutral-900 hover:text-neutral-950 border border-neutral-400 rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-sm hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
+                <Button asChild size="lg" className="w-full md:w-auto bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white border border-[#AE4951] rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-sm hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
                     <ArrowRight className="ml-2 w-5 h-5" />
