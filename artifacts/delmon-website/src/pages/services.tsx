@@ -86,11 +86,11 @@ export default function ServicesPage() {
                     {srv.description}
                   </p>
                   
-                  <ul className="space-y-4 bg-white/70 rounded-2xl p-6 border border-[#eadadd] relative z-10">
+                  <ul className="space-y-4 bg-black rounded-2xl p-6 border border-black relative z-10">
                     {srv.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0"></div>
-                        <span className="text-sm font-medium text-slate-700 leading-relaxed">{detail}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-300 mt-2 shrink-0"></div>
+                        <span className="text-sm font-medium text-slate-100 leading-relaxed">{detail}</span>
                       </li>
                     ))}
                   </ul>
