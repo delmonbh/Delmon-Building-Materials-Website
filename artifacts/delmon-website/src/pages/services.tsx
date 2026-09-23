@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Boxes, DraftingCompass, Globe2, HardHat, Ship, Truck, Warehouse } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import servicesHeaderImg from '@/assets/services-header.jpg';
 
@@ -15,6 +15,8 @@ export default function ServicesPage() {
   const services = [
     {
       title: "Material Supply",
+      icon: Boxes,
+      accentIcon: HardHat,
       description: "Coordinated supply of essential structural materials including deformed steel, welded wire mesh, and premium woods for varied project requirements.",
       details: [
         "Supply planning for varied project volumes",
@@ -24,6 +26,8 @@ export default function ServicesPage() {
     },
     {
       title: "Global Sourcing",
+      icon: Globe2,
+      accentIcon: Ship,
       description: "Using established international relationships to source suitable material options for specific grades, specifications, and project volumes.",
       details: [
         "Established international sourcing relationships",
@@ -33,6 +37,8 @@ export default function ServicesPage() {
     },
     {
       title: "Reliable Logistics",
+      icon: Truck,
+      accentIcon: Warehouse,
       description: "Warehousing and delivery coordination designed to support construction schedules and site requirements across Bahrain.",
       details: [
         "Delivery coordination for construction sites",
@@ -42,6 +48,8 @@ export default function ServicesPage() {
     },
     {
       title: "Expert Guidance",
+      icon: DraftingCompass,
+      accentIcon: HardHat,
       description: "Practical support when reviewing material categories, available specifications, and suitable options for each application.",
       details: [
         "Guidance on material categories and applications",
@@ -67,30 +75,41 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" data-testid="section-services-list">
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100} className="h-full">
-                <div 
-                  className="group h-full bg-[#AE4951] rounded-[2rem] p-8 lg:p-10 border border-[#8d343d] hover:shadow-xl hover:shadow-[#8d343d]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden" 
+                <div
+                  className={`group h-full min-h-[390px] rounded-[2rem] p-8 lg:p-9 border border-white/10 hover:shadow-xl hover:shadow-[#363638]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden ${
+                    idx % 2 === 0
+                      ? "bg-[linear-gradient(150deg,#823d46_0%,#664449_40%,#34383b_100%)]"
+                      : "bg-[linear-gradient(150deg,#747173_0%,#625d5f_40%,#34383b_100%)]"
+                  }`}
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-                  
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-8 relative z-10">
-                    <span className="text-5xl lg:text-6xl font-display font-light text-rose-200">
+                  <div className="absolute right-0 top-0 w-44 h-44 rounded-full bg-white/[0.04] blur-2xl pointer-events-none" />
+                  <div className="absolute right-5 top-5 w-20 h-20 sm:w-24 sm:h-24 text-white/80 pointer-events-none" aria-hidden="true">
+                    <div className="absolute inset-1 rounded-full border border-white/20 bg-white/[0.06] rotate-[-12deg]" />
+                    <srv.icon className="absolute top-2 right-2 w-12 h-12 sm:w-14 sm:h-14 stroke-[1.3] drop-shadow-md" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-white/25 bg-[#ae4951]/80 flex items-center justify-center shadow-lg">
+                      <srv.accentIcon className="w-5 h-5 stroke-[1.4]" />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 mb-7 relative z-10 pr-16 sm:pr-20">
+                    <span className="text-5xl lg:text-[3.5rem] leading-none font-display font-light text-[#efdddd] drop-shadow-sm">
                       0{idx + 1}
                     </span>
-                    <h2 className="text-2xl lg:text-3xl font-display font-medium text-white">
+                    <h2 className="text-2xl lg:text-[1.75rem] font-display font-medium text-white leading-tight">
                       {srv.title}
                     </h2>
                   </div>
 
-                  <p className="text-lg text-rose-50 leading-relaxed mb-8 flex-1 relative z-10">
+                  <p className="text-base lg:text-lg text-white/90 leading-relaxed mb-8 flex-1 relative z-10 max-w-[28rem] text-left">
                     {srv.description}
                   </p>
-                  
-                  <ul className="space-y-4 bg-[#f7e9ea] rounded-2xl p-6 border border-[#e9ced1] relative z-10">
+
+                  <ul className="space-y-4 bg-[#25282b]/25 rounded-2xl p-5 sm:p-6 border border-[#d3b2b4]/70 relative z-10">
                     {srv.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                        <span className="text-sm font-medium text-[#492c31] leading-relaxed">{detail}</span>
+                      <li key={i} className="flex items-start gap-4 text-left">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#edbfc2] mt-2 shrink-0"></div>
+                        <span className="text-sm font-medium text-white/90 leading-relaxed">{detail}</span>
                       </li>
                     ))}
                   </ul>
