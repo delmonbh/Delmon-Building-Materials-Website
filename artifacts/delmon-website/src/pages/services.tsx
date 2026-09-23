@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { ArrowRight, Boxes, DraftingCompass, Globe2, HardHat, Ship, Truck, Warehouse } from 'lucide-react';
+import { ArrowRight, DraftingCompass, Globe2, Layers3, Truck } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import servicesHeaderImg from '@/assets/services-header.jpg';
 
@@ -15,8 +15,7 @@ export default function ServicesPage() {
   const services = [
     {
       title: "Material Supply",
-      icon: Boxes,
-      accentIcon: HardHat,
+      icon: Layers3,
       description: "Coordinated supply of essential structural materials including deformed steel, welded wire mesh, and premium woods for varied project requirements.",
       details: [
         "Supply planning for varied project volumes",
@@ -27,7 +26,6 @@ export default function ServicesPage() {
     {
       title: "Global Sourcing",
       icon: Globe2,
-      accentIcon: Ship,
       description: "Using established international relationships to source suitable material options for specific grades, specifications, and project volumes.",
       details: [
         "Established international sourcing relationships",
@@ -38,7 +36,6 @@ export default function ServicesPage() {
     {
       title: "Reliable Logistics",
       icon: Truck,
-      accentIcon: Warehouse,
       description: "Warehousing and delivery coordination designed to support construction schedules and site requirements across Bahrain.",
       details: [
         "Delivery coordination for construction sites",
@@ -49,7 +46,6 @@ export default function ServicesPage() {
     {
       title: "Expert Guidance",
       icon: DraftingCompass,
-      accentIcon: HardHat,
       description: "Practical support when reviewing material categories, available specifications, and suitable options for each application.",
       details: [
         "Guidance on material categories and applications",
@@ -84,12 +80,8 @@ export default function ServicesPage() {
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="absolute right-0 top-0 w-44 h-44 rounded-full bg-white/[0.04] blur-2xl pointer-events-none" />
-                  <div className="absolute right-5 top-5 w-20 h-20 sm:w-24 sm:h-24 text-white/80 pointer-events-none" aria-hidden="true">
-                    <div className="absolute inset-1 rounded-full border border-white/20 bg-white/[0.06] rotate-[-12deg]" />
-                    <srv.icon className="absolute top-2 right-2 w-12 h-12 sm:w-14 sm:h-14 stroke-[1.3] drop-shadow-md" />
-                    <div className="absolute bottom-0 left-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-white/25 bg-[#ae4951]/80 flex items-center justify-center shadow-lg">
-                      <srv.accentIcon className="w-5 h-5 stroke-[1.4]" />
-                    </div>
+                  <div className="absolute right-6 top-6 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.4rem] border border-white/20 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] flex items-center justify-center text-[#f7e6e7] pointer-events-none" aria-hidden="true">
+                    <srv.icon className="w-9 h-9 sm:w-11 sm:h-11 stroke-[1.4]" />
                   </div>
 
                   <div className="flex items-center gap-3 mb-7 relative z-10 pr-16 sm:pr-20">
@@ -121,7 +113,7 @@ export default function ServicesPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
-            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border-2 border-[#AE4951]">
+            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border-2 border-[#6f6f6f]">
               
               <div className="relative z-10 max-w-2xl">
                 <h3 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Ready to streamline your supply chain?</h3>
