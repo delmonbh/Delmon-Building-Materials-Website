@@ -114,7 +114,7 @@ export default function ServicesPage() {
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
             <div className="grid lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,.75fr)] overflow-hidden rounded-[2rem] bg-[#f3f3f3]">
-              <div className="px-8 py-12 sm:p-12 lg:px-16 lg:py-16">
+              <div className="px-8 pt-12 pb-10 sm:px-12 lg:px-16 lg:pt-16 lg:pb-0">
                 <div className="flex items-center gap-3 mb-7">
                   <span className="h-px w-8 bg-primary" />
                   <span className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Let&apos;s work together</span>
@@ -123,18 +123,12 @@ export default function ServicesPage() {
                   Built for the work ahead.<br />
                   <span className="italic text-primary">Let&apos;s talk supply.</span>
                 </h3>
-                <p className="max-w-lg text-base md:text-lg leading-relaxed text-[#595959] mb-9" style={{ textAlign: "left" }}>
+                <p className="max-w-lg text-base md:text-lg leading-relaxed text-[#595959]" style={{ textAlign: "left" }}>
                   Tell us about your project timeline and material requirements. Our procurement team is ready to discuss your options.
                 </p>
-                <Button asChild size="lg" className="h-14 rounded-full bg-primary text-white hover:text-white hover:opacity-90 px-8 font-semibold shadow-sm transition-opacity" data-testid="button-services-contact">
-                  <Link href="/contact">
-                    Contact Sales
-                    <ArrowUpRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </Button>
               </div>
 
-              <div className="relative flex flex-col justify-center bg-[#e5e5e5] px-8 py-10 sm:p-12 lg:px-12 overflow-hidden">
+              <div className="relative flex flex-col justify-center bg-[#e5e5e5] px-8 py-10 sm:p-12 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:px-12 overflow-hidden">
                 <div className="absolute left-0 top-0 h-full w-1 bg-primary" aria-hidden="true" />
                 <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full border border-[#d0d0d0] sm:-right-20 sm:-top-24 sm:h-64 sm:w-64" aria-hidden="true" />
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full border border-[#d0d0d0] sm:-right-10 sm:-top-14 sm:h-44 sm:w-44" aria-hidden="true" />
@@ -147,6 +141,15 @@ export default function ServicesPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="px-8 py-10 sm:px-12 lg:col-start-1 lg:row-start-2 lg:px-16 lg:pt-9 lg:pb-16">
+                <Button asChild size="lg" className="h-14 rounded-full bg-primary text-white hover:text-white hover:opacity-90 px-8 font-semibold shadow-sm transition-opacity" data-testid="button-services-contact">
+                  <Link href="/contact">
+                    Contact Sales
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </FadeIn>
