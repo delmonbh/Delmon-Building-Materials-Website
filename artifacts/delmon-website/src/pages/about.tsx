@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Building2 } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import heroBg from '@/assets/about-header-bahrain-materials-wide.jpg';
+import heroBg from '@/assets/about-header-bahrain-materials-new.jpg';
 
 export default function AboutPage() {
   usePageSetup("About Us | Delmon Building Materials", "Learn about Delmon Building Materials, a proud division of Mohamed Jalal & Sons supporting Bahrain's monumental construction projects since 1974.");
@@ -30,13 +30,13 @@ export default function AboutPage() {
       <Navbar />
       <main className="flex-grow pb-8 md:pb-12">
         
-        <PageHeader 
+        <PageHeader
           subtitle="Our Heritage"
           title={<>Quietly Supporting <br /><span className="italic text-muted-foreground">the Nation's Growth</span></>}
           description="Established in 1974, Delmon Building Materials has supported construction activity across the Kingdom of Bahrain for five decades. We specialize in the procurement and provision of high-yield deformed steel, precision welded wire mesh, and premium structural woods."
           image={heroBg}
-          imageAlt="Construction materials and a Bahrain flag beside a coastal building site"
-          imageClassName="object-right md:object-center"
+          imageAlt="Illustrative Bahrain industrial supply scene with steel, wire mesh, wood, and a Bahrain flag"
+          imageClassName="object-center"
         />
 
         {/* Corporate Relationship */}
