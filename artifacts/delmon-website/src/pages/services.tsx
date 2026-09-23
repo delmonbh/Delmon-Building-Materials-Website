@@ -68,13 +68,13 @@ export default function ServicesPage() {
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100} className="h-full">
                 <div 
-                  className="group h-full bg-white rounded-[2rem] p-8 lg:p-10 border border-slate-100 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col relative overflow-hidden" 
+                  className="group h-full bg-[#f7f0f0] rounded-[2rem] p-8 lg:p-10 border border-[#a66c76] hover:shadow-xl hover:shadow-slate-200/50 transition-shadow duration-500 flex flex-col relative overflow-hidden" 
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-700 pointer-events-none"></div>
                   
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-8 relative z-10">
-                    <span className="text-5xl lg:text-6xl font-display font-light text-slate-200 group-hover:text-primary transition-colors duration-500">
+                    <span className="text-5xl lg:text-6xl font-display font-light text-primary">
                       0{idx + 1}
                     </span>
                     <h2 className="text-2xl lg:text-3xl font-display font-medium text-foreground">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                     {srv.description}
                   </p>
                   
-                  <ul className="space-y-4 bg-slate-50 rounded-2xl p-6 border border-slate-100 relative z-10">
+                  <ul className="space-y-4 bg-white/70 rounded-2xl p-6 border border-[#eadadd] relative z-10">
                     {srv.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0"></div>

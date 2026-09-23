@@ -38,23 +38,28 @@ export default function AboutPage() {
         />
 
         {/* Corporate Relationship */}
-        <section className="bg-slate-50 border-y border-border py-16 md:py-24 mb-24 md:mb-32 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+        <section className="bg-slate-50 border-y border-border py-16 md:py-24 mb-24 md:mb-32">
           <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
             <FadeIn>
-              <div className="bg-white rounded-none p-8 md:p-16 border-l-4 border-l-primary shadow-[10px_10px_0px_0px_rgba(0,0,0,0.03)] border border-border max-w-4xl mx-auto">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
-                  <div className="w-20 h-20 bg-slate-50 border border-border flex items-center justify-center shrink-0">
-                    <Building2 className="w-10 h-10 text-primary" />
+              <div className="max-w-5xl mx-auto grid md:grid-cols-[.75fr_1.25fr] rounded-[2rem] overflow-hidden shadow-lg shadow-slate-200/60 border border-[#e9e2df]">
+                <div className="bg-[#7d333e] text-white p-8 sm:p-10 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-56">
+                  <div className="absolute -bottom-20 -right-12 w-64 h-64 rounded-full border-[32px] border-white/10 pointer-events-none" />
+                  <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center relative">
+                    <Building2 className="w-7 h-7 text-white" />
                   </div>
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-4">
-                      A Division of Mohamed Jalal & Sons
-                    </h2>
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                      As a division of Mohamed Jalal & Sons, Delmon benefits from an established regional presence and broad sourcing relationships. This backing helps us support demanding material requirements with dependable procurement and supply.
-                    </p>
+                  <div className="relative mt-10">
+                    <span className="text-xs font-semibold tracking-[.18em] uppercase text-white/75">Our foundation</span>
+                    <p className="mt-3 font-display text-2xl md:text-3xl leading-tight" style={{ textAlign: 'left' }}>Connected through experience.</p>
                   </div>
+                </div>
+                <div className="bg-[#f4f1ed] p-8 sm:p-10 md:p-12 flex flex-col justify-center">
+                  <div className="w-10 h-[2px] bg-primary mb-6" />
+                  <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-5">
+                    A Division of Mohamed Jalal &amp; Sons
+                  </h2>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed" style={{ textAlign: 'left' }}>
+                    As a division of Mohamed Jalal &amp; Sons, Delmon benefits from an established regional presence and broad sourcing relationships. This backing helps us support demanding material requirements with dependable procurement and supply.
+                  </p>
                 </div>
               </div>
             </FadeIn>
@@ -77,21 +82,21 @@ export default function AboutPage() {
                 </div>
               </div>
               
-              <div className="lg:col-span-3 border-t-2 border-border" data-testid="section-values">
+              <div className="lg:col-span-3 space-y-5" data-testid="section-values">
                 {pillars.map((pillar, idx) => (
                   <div 
                     key={idx} 
-                    className="group border-b border-border py-10 md:py-16 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 transition-all duration-500 hover:bg-slate-50/50 px-4 -mx-4 md:px-8 md:-mx-8"
+                    className="rounded-2xl border border-[#e9dfe0] bg-[#f7f0f0] p-7 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8"
                     data-testid={`value-row-${idx}`}
                   >
-                    <div className="text-5xl md:text-6xl font-display font-light text-slate-700 group-hover:text-primary transition-colors duration-500 w-24 shrink-0">
+                    <div className="text-5xl md:text-6xl font-display font-light text-primary w-20 shrink-0">
                       0{idx + 1}
                     </div>
                     <div className="flex-grow">
-                      <h3 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3 group-hover:translate-x-2 transition-transform duration-500">
+                      <h3 className="text-2xl md:text-3xl font-display font-medium text-[#7d333e] mb-3">
                         {pillar.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl group-hover:translate-x-2 transition-transform duration-500 delay-75">
+                      <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl" style={{ textAlign: 'left' }}>
                         {pillar.description}
                       </p>
                     </div>
