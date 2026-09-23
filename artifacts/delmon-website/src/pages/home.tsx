@@ -78,22 +78,22 @@ function Heritage() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid lg:grid-cols-[.95fr_1.05fr] gap-10 lg:gap-20 items-center">
           <FadeIn>
-            <div className="rounded-3xl bg-[#f2f0ed] border border-[#e7e1db] p-7 sm:p-10 md:p-12 overflow-hidden relative">
+            <div className="rounded-3xl bg-[#f0f0f0] border border-[#dedede] p-7 sm:p-8 md:p-9 overflow-hidden relative">
               <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[6rem] pointer-events-none" />
               <div className="relative">
                 <span className="text-xs font-semibold tracking-[.18em] uppercase text-primary">The Delmon story</span>
-                <div className="mt-7 pb-8 border-b border-[#d8d0c9]">
-                  <span className="block font-display text-[5.5rem] sm:text-[7rem] leading-none tracking-tight text-[#603b39]">1974</span>
-                  <span className="block mt-3 text-sm font-medium uppercase tracking-[.16em] text-[#766963]">Established in Bahrain</span>
+                <div className="mt-5 pb-6 border-b border-[#d2d2d2]">
+                  <span className="block font-display text-[5rem] sm:text-[6rem] leading-none tracking-tight text-[#505050]">1974</span>
+                  <span className="block mt-2 text-sm font-medium uppercase tracking-[.16em] text-[#555555]">Established in Bahrain</span>
                 </div>
-                <div className="divide-y divide-[#d8d0c9]">
-                  <div className="flex gap-5 py-6">
+                <div className="divide-y divide-[#d2d2d2]">
+                  <div className="flex gap-5 py-4">
                     <span className="font-display text-xl text-primary">01</span>
-                    <div><h3 className="font-display text-xl text-foreground mb-1">Dependable supply</h3><p className="text-sm leading-relaxed text-muted-foreground">Materials selected for construction needs.</p></div>
+                    <div><h3 className="font-display text-xl text-foreground mb-1">Dependable supply</h3><p className="text-sm leading-relaxed text-[#555555]">Materials selected for construction needs.</p></div>
                   </div>
-                  <div className="flex gap-5 pt-6">
+                  <div className="flex gap-5 pt-4">
                     <span className="font-display text-xl text-primary">02</span>
-                    <div><h3 className="font-display text-xl text-foreground mb-1">Regional connections</h3><p className="text-sm leading-relaxed text-muted-foreground">Backed by established sourcing relationships.</p></div>
+                    <div><h3 className="font-display text-xl text-foreground mb-1">Regional connections</h3><p className="text-sm leading-relaxed text-[#555555]">Backed by established sourcing relationships.</p></div>
                   </div>
                 </div>
               </div>
