@@ -7,7 +7,7 @@ import { ArrowRight, ArrowUpRight, Package, Truck, Info, Globe } from 'lucide-re
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
 
-import heroBg from '@/assets/hero-bg.jpg';
+import heroBg from '@/assets/home-hero-original.jpg';
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
@@ -58,7 +58,7 @@ function Hero() {
               <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl aspect-[16/10] lg:aspect-[4/3] max-h-[500px]">
                 <img 
                   src={heroBg} 
-                  alt="Bahrain Construction Skyline" 
+                  alt="Coastal city skyline with a building project and cranes at sunrise"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent mix-blend-multiply" />
@@ -145,50 +145,40 @@ function Services() {
   ];
 
   return (
-    <section className="bg-primary py-5 md:py-10" data-testid="section-services">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 rounded-2xl bg-[#f2f2f2] px-6 py-12 md:px-12 md:py-16 lg:px-16">
-          
-          <div className="lg:col-span-5 relative">
-            <div className="lg:sticky lg:top-32">
-              <FadeIn>
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-8 h-[2px] bg-primary"></div>
-                  <span className="text-primary font-semibold tracking-wider text-xs uppercase">
-                    Capabilities
-                  </span>
-                </div>
-                <h2 className="text-3xl md:text-5xl font-display font-medium leading-tight text-[#414141] mb-6">
-                  Industrial Supply <br/><span className="italic text-primary">Engineered for Scale</span>
-                </h2>
-                <p className="text-[#555555] text-base md:text-lg leading-relaxed max-w-md mb-8">
-                  Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
-                </p>
-                <Link href="/services" className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#8d343d] transition-colors shadow-sm" data-testid="link-home-services">
-                  View All Services
-                </Link>
-              </FadeIn>
-            </div>
+    <section className="bg-primary py-6 md:py-10" data-testid="section-services">
+      <div className="mx-auto max-w-[1320px] px-4 md:px-8">
+        <div className="overflow-hidden rounded-2xl bg-[#ededed]">
+          <div className="grid gap-8 px-7 pb-10 pt-12 md:px-12 md:pb-12 md:pt-16 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-16">
+            <FadeIn>
+              <div className="mb-6 flex items-center gap-4">
+                <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
+                <span className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Capabilities</span>
+              </div>
+              <h2 className="font-display text-4xl leading-[1.12] text-[#373737] md:text-5xl lg:text-[3.5rem]">
+                Industrial Supply<br /><span className="italic text-[#a44b53]">Engineered for Scale</span>
+              </h2>
+            </FadeIn>
+            <FadeIn delay={150} className="flex flex-col items-start justify-end">
+              <p className="max-w-[490px] text-base leading-relaxed text-[#555] md:text-lg" style={{ textAlign: 'left' }}>
+                Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
+              </p>
+              <Link href="/services" className="mt-7 inline-flex items-center gap-3 border-b-2 border-primary pb-1.5 text-sm font-semibold text-primary transition-colors hover:text-[#7d333e]" data-testid="link-home-services">
+                View All Services <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </FadeIn>
           </div>
-
-          <div className="lg:col-span-7 flex flex-col gap-7 md:gap-8 lg:mt-12">
-            {services.map((srv, idx) => (
-              <FadeIn key={srv.title} delay={idx * 100}>
-                <div className="group border-t border-[#d0d0d0] pt-7 flex flex-col sm:flex-row gap-5 sm:gap-7 items-start transition-colors duration-500 hover:border-primary/60">
-                  <div className="w-14 h-14 shrink-0 bg-white border border-[#e2e2e2] rounded-xl flex items-center justify-center group-hover:border-primary/40 transition-all duration-500">
-                    <srv.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-[#414141] mb-2">{srv.title}</h3>
-                    <p className="text-[#555555] text-base leading-relaxed">
-                      {srv.description}
-                    </p>
-                  </div>
+          <div className="grid gap-px border-t border-[#d1d1d1] bg-[#d1d1d1] md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => (
+              <div key={service.title} className="group flex min-h-[245px] flex-col bg-[#f7f7f7] px-7 py-8 transition-colors hover:bg-white md:px-8">
+                <div className="mb-10 flex items-start justify-between">
+                  <span className="font-display text-xl text-[#a44b53]">0{index + 1}</span>
+                  <service.icon className="h-7 w-7 text-[#a44b53]" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-              </FadeIn>
+                <h3 className="mb-3 font-display text-[1.35rem] leading-tight text-[#353535]">{service.title}</h3>
+                <p className="text-sm leading-relaxed text-[#626262]" style={{ textAlign: 'left' }}>{service.description}</p>
+              </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

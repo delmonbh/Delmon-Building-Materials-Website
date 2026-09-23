@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Building2 } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import heroBg from '@/assets/hero-bg.jpg';
+import heroBg from '@/assets/about-header-original.jpg';
 
 export default function AboutPage() {
   usePageSetup("About Us | Delmon Building Materials", "Learn about Delmon Building Materials, a proud division of Mohamed Jalal & Sons supporting Bahrain's monumental construction projects since 1974.");

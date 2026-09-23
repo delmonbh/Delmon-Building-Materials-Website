@@ -1,0 +1,30 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "CsNzM00HcxpmtkA7CAYu0"
+uri = "file://artifacts/delmon-website/src/assets/home-hero-original.jpg"
+type = "image"
+title = "Homepage hero image"
+description = "Original generated coastal construction skyline image used on the homepage."
+logical_id = "33d95a07-69b2-4913-8ed8-ad129098a2d6"
+content_hash = "sha256:5889d5aef4039799b3dcd9e54523a3793029df6a407965cf04da252a586981b5"
+size = 170958
+mtime_ms = 1790164854502
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:0fa55839-b137-4766-878d-2c7ead390630/33d95a07-69b2-4913-8ed8-ad129098a2d6/c614417e-9d12-47d7-8800-2f613156f6ae"
+storage_version_token = "1790164986198950"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "R-jpW-IErIWivGG_eBd7y"
+uri = "file://artifacts/delmon-website/src/assets/about-header-original.jpg"
+type = "image"
+title = "About Us header image"
+description = "Original generated dusk waterfront skyline image used on the About page."
+logical_id = "fd832adb-e584-4e92-b54d-4d168698439e"
+content_hash = "sha256:8e9440b3bf09f2b8fd3b034aca8d5dbab7a0cacb4f03fd2beddd69c233343052"
+size = 72538
+mtime_ms = 1790164918773
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:0fa55839-b137-4766-878d-2c7ead390630/fd832adb-e584-4e92-b54d-4d168698439e/6b58ddba-abaf-4b25-90af-7344e624f60b"
+storage_version_token = "1790164990568017"
+content_type = "image/jpeg"
