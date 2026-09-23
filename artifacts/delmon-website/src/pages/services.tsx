@@ -74,18 +74,18 @@ export default function ServicesPage() {
                 <div
                   className={`group h-full min-h-[390px] rounded-[2rem] p-8 lg:p-9 border border-white/10 hover:shadow-xl hover:shadow-[#363638]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden ${
                     idx % 2 === 0
-                      ? "bg-[linear-gradient(150deg,#AE4951_0%,#A94D55_60%,#8F555A_82%,#59595B_100%)]"
+                      ? "bg-primary"
                       : "bg-[linear-gradient(150deg,#6F6F6F_0%,#707072_65%,#656668_84%,#535557_100%)]"
                   }`}
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="absolute right-0 top-0 w-44 h-44 rounded-full bg-white/[0.04] blur-2xl pointer-events-none" />
-                  <div className="absolute right-6 top-6 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.4rem] border border-white/20 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] flex items-center justify-center text-[#f7e6e7] pointer-events-none" aria-hidden="true">
+                  <div className="absolute right-6 top-6 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.4rem] border border-white/20 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] flex items-center justify-center text-white pointer-events-none" aria-hidden="true">
                     <srv.icon className="w-9 h-9 sm:w-11 sm:h-11 stroke-[1.4]" />
                   </div>
 
                   <div className="flex items-center gap-3 mb-7 relative z-10 pr-16 sm:pr-20">
-                    <span className="text-5xl lg:text-[3.5rem] leading-none font-display font-light text-[#efdddd] drop-shadow-sm">
+                    <span className="text-5xl lg:text-[3.5rem] leading-none font-display font-light text-white/80 drop-shadow-sm">
                       0{idx + 1}
                     </span>
                     <h2 className="text-2xl lg:text-[1.75rem] font-display font-medium text-white leading-tight">
@@ -97,10 +97,10 @@ export default function ServicesPage() {
                     {srv.description}
                   </p>
 
-                  <ul className="space-y-4 bg-white/[0.06] rounded-2xl p-5 sm:p-6 border border-[#e0cbcd]/60 relative z-10">
+                  <ul className="space-y-4 bg-white/[0.06] rounded-2xl p-5 sm:p-6 border border-white/25 relative z-10">
                     {srv.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-4 text-left">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#edbfc2] mt-2 shrink-0"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-white/80 mt-2 shrink-0"></div>
                         <span className="text-sm font-medium text-white/90 leading-relaxed">{detail}</span>
                       </li>
                     ))}
@@ -116,17 +116,17 @@ export default function ServicesPage() {
             <div className="grid lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,.75fr)] overflow-hidden rounded-[2rem] bg-[#f3f3f3]">
               <div className="px-8 py-12 sm:p-12 lg:px-16 lg:py-16">
                 <div className="flex items-center gap-3 mb-7">
-                  <span className="h-px w-8 bg-[#AE4951]" />
-                  <span className="text-xs font-semibold uppercase tracking-[.18em] text-[#AE4951]">Let&apos;s work together</span>
+                  <span className="h-px w-8 bg-primary" />
+                  <span className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Let&apos;s work together</span>
                 </div>
                 <h3 className="max-w-[38rem] font-display text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.08] text-foreground mb-6">
                   Built for the work ahead.<br />
-                  <span className="italic text-[#AE4951]">Let&apos;s talk supply.</span>
+                  <span className="italic text-primary">Let&apos;s talk supply.</span>
                 </h3>
                 <p className="max-w-lg text-base md:text-lg leading-relaxed text-[#595959] mb-9" style={{ textAlign: "left" }}>
                   Tell us about your project timeline and material requirements. Our procurement team is ready to discuss your options.
                 </p>
-                <Button asChild size="lg" className="h-14 rounded-full bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white px-8 font-semibold shadow-sm transition-colors" data-testid="button-services-contact">
+                <Button asChild size="lg" className="h-14 rounded-full bg-primary text-white hover:text-white hover:opacity-90 px-8 font-semibold shadow-sm transition-opacity" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
                     <ArrowUpRight className="ml-2 w-5 h-5" />
@@ -135,14 +135,14 @@ export default function ServicesPage() {
               </div>
 
               <div className="relative flex flex-col justify-center bg-[#e5e5e5] px-8 py-10 sm:p-12 lg:px-12 overflow-hidden">
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#AE4951]" aria-hidden="true" />
+                <div className="absolute left-0 top-0 h-full w-1 bg-primary" aria-hidden="true" />
                 <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
                 <div className="absolute -right-10 -top-14 h-44 w-44 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
-                <span className="relative text-xs font-semibold uppercase tracking-[.18em] text-[#AE4951] mb-6">From plan to site</span>
+                <span className="relative text-xs font-semibold uppercase tracking-[.18em] text-primary mb-6">From plan to site</span>
                 <div className="relative divide-y divide-[#c8c8c8]">
                   {["Material sourcing", "Supply planning", "Delivery coordination"].map((step, index) => (
                     <div key={step} className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
-                      <span className="font-display text-2xl text-[#AE4951]">0{index + 1}</span>
+                      <span className="font-display text-2xl text-primary">0{index + 1}</span>
                       <span className="font-display text-xl text-[#484848]">{step}</span>
                     </div>
                   ))}

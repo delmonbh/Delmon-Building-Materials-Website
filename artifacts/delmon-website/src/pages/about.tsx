@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
             <FadeIn>
               <div className="max-w-5xl mx-auto grid md:grid-cols-[.75fr_1.25fr] rounded-[2rem] overflow-hidden shadow-lg shadow-slate-200/60 border border-[#e9e2df]">
-                <div className="bg-[#7d333e] text-white p-8 sm:p-10 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-56">
+                <div className="bg-primary text-white p-8 sm:p-10 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-56">
                   <div className="absolute -bottom-20 -right-12 w-64 h-64 rounded-full border-[32px] border-white/10 pointer-events-none" />
                   <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center relative">
                     <Building2 className="w-7 h-7 text-white" />
@@ -95,7 +95,7 @@ export default function AboutPage() {
                       0{idx + 1}
                     </div>
                     <div className="flex-grow">
-                      <h3 className="text-2xl md:text-3xl font-display font-medium text-[#7d333e] mb-3">
+                      <h3 className="text-2xl md:text-3xl font-display font-medium text-primary mb-3">
                         {pillar.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl" style={{ textAlign: 'left' }}>

@@ -151,34 +151,33 @@ function Services() {
           <div className="grid gap-8 px-7 pb-10 pt-12 md:px-12 md:pb-12 md:pt-16 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-16">
             <FadeIn>
               <div className="mb-6 flex items-center gap-4">
-                <span className="h-0.5 w-8 bg-[#92384b]" aria-hidden="true" />
-                <span className="text-xs font-semibold uppercase tracking-[.18em] text-[#92384b]">Capabilities</span>
+                <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
+                <span className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Capabilities</span>
               </div>
               <h2 className="font-display text-4xl leading-[1.12] text-[#253133] md:text-5xl lg:text-[3.5rem]">
-                Industrial Supply<br /><span className="italic text-[#92384b]">Engineered for Scale</span>
+                Industrial Supply<br /><span className="italic text-primary">Engineered for Scale</span>
               </h2>
             </FadeIn>
             <FadeIn delay={150} className="flex flex-col items-start justify-end">
               <p className="max-w-[490px] text-base leading-relaxed text-[#364244] md:text-lg" style={{ textAlign: 'left' }}>
                 Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
               </p>
-              <Link href="/services" className="mt-7 inline-flex items-center gap-3 rounded-md bg-[#92384b] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#762b3d]" data-testid="link-home-services">
+              <Link href="/services" className="mt-7 inline-flex items-center gap-3 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90" data-testid="link-home-services">
                 View All Services <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </FadeIn>
           </div>
-          <div className="bg-primary p-3 md:p-5">
-            <div className="grid gap-2 md:grid-cols-2 md:gap-3 lg:grid-cols-4">
+          <div className="h-5 bg-primary md:h-6" aria-hidden="true" />
+          <div className="grid gap-px bg-[#c9c9c9] md:grid-cols-2 lg:grid-cols-4">
               {services.map((service) => (
-                <div key={service.title} className="group flex min-h-[260px] flex-col items-center rounded-lg bg-[#f4f4f2] px-7 py-9 text-center transition-colors hover:bg-white md:px-8">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#e4cbd0] bg-white">
+                <div key={service.title} className="group flex min-h-[260px] flex-col items-center bg-[#ededed] px-7 py-9 text-center transition-colors hover:bg-[#f4f4f4] md:px-8">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#d5d5d5] bg-white">
                     <service.icon className="h-7 w-7 text-primary" strokeWidth={1.7} aria-hidden="true" />
                   </div>
                   <h3 className="mb-3 mt-6 font-display text-[1.35rem] leading-tight text-[#253133]">{service.title}</h3>
                   <p className="max-w-[230px] text-sm leading-relaxed text-[#465153]" style={{ textAlign: 'center' }}>{service.description}</p>
                 </div>
               ))}
-            </div>
           </div>
         </div>
       </div>
@@ -257,25 +256,25 @@ function Products() {
 function Promise() {
   return (
     <section className="relative overflow-hidden bg-[#eeeeee] py-12 md:py-14" data-testid="section-promise">
-      <div className="absolute left-0 right-0 top-0 h-1 bg-[#AE4951]" aria-hidden="true" />
+      <div className="absolute left-0 right-0 top-0 h-1 bg-primary" aria-hidden="true" />
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative">
         <div className="flex items-center gap-5 mb-7 md:mb-8">
-          <span className="text-xs font-semibold tracking-[.18em] uppercase text-[#AE4951] whitespace-nowrap">The Delmon promise</span>
+          <span className="text-xs font-semibold tracking-[.18em] uppercase text-primary whitespace-nowrap">The Delmon promise</span>
           <span className="h-px w-full bg-[#d0d0d0]" aria-hidden="true" />
         </div>
         <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-10 lg:gap-24 items-end">
           <FadeIn>
             <h2 className="font-display text-[2.75rem] sm:text-5xl md:text-6xl leading-[1.08] text-[#414141]">
               A partner.<br />
-              <span className="italic text-[#AE4951]">Not just a supplier.</span>
+              <span className="italic text-primary">Not just a supplier.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={150}>
-            <div className="border-l-2 border-[#AE4951] pl-6 md:pl-8">
+            <div className="border-l-2 border-primary pl-6 md:pl-8">
               <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-7" style={{ textAlign: "left" }}>
                 We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
               </p>
-              <Button size="lg" className="bg-[#AE4951] hover:bg-[#8d343d] text-white hover:text-white rounded-full font-semibold px-7 h-12 shadow-sm" asChild data-testid="link-home-promise">
+              <Button size="lg" className="bg-primary text-white hover:text-white hover:opacity-90 rounded-full font-semibold px-7 h-12 shadow-sm" asChild data-testid="link-home-promise">
                 <Link href="/contact">
                   Discuss Your Project
                   <ArrowUpRight className="ml-2 w-4 h-4" />
@@ -301,7 +300,7 @@ export default function HomePage() {
         <Services />
         <Products />
         <Promise />
-        <div className="h-3 bg-[#AE4951]" aria-hidden="true" />
+        <div className="h-3 bg-primary" aria-hidden="true" />
       </main>
       <Footer />
     </div>
