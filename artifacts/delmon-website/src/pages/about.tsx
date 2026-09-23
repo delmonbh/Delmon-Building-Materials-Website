@@ -28,7 +28,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
       <Navbar />
-      <main className="flex-grow pb-16 md:pb-24">
+      <main className="flex-grow pb-8 md:pb-12">
         
         <PageHeader 
           subtitle="Our Heritage"
@@ -69,9 +69,9 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values / Pillars */}
-        <section className="max-w-[1200px] mx-auto px-4 md:px-8 pb-8">
+        <section className="max-w-[1200px] mx-auto px-4 md:px-8">
           <FadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
               <div className="lg:col-span-1">
                 <div className="sticky top-32">
                   <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">

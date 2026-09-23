@@ -50,11 +50,11 @@ export default function ContactPage() {
             
             <div className="lg:col-span-5 space-y-10">
               <FadeIn delay={150}>
-                <div className="bg-neutral-50 border border-border p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden">
+                <div className="bg-neutral-50 border border-border rounded-2xl p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full"></div>
                   
                   <div className="flex items-start gap-6 group">
-                    <div className="w-12 h-12 bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
                   <div className="w-full h-[1px] bg-border/60"></div>
 
                   <div className="flex items-start gap-6 group">
-                    <div className="w-12 h-12 bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   <div className="w-full h-[1px] bg-border/60"></div>
 
                   <div className="flex items-start gap-6 group">
-                    <div className="w-12 h-12 bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
 
             <div className="lg:col-span-7">
               <FadeIn delay={300}>
-                <div className="bg-white border border-border p-6 md:p-12 shadow-xl shadow-black/5 relative">
+                <div className="bg-white border border-border rounded-2xl overflow-hidden p-6 md:p-12 shadow-xl shadow-black/5 relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
                   
                   <h3 className="text-3xl font-display font-medium text-foreground mb-8">Send an Inquiry</h3>
@@ -164,9 +164,11 @@ export default function ContactPage() {
                       ></textarea>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full sm:w-auto rounded-none h-14 px-10 bg-primary hover:bg-primary/90 text-white font-semibold text-sm tracking-wide uppercase shadow-none" data-testid="button-submit-inquiry">
-                      Submit
-                    </Button>
+                    <div className="flex justify-center">
+                      <Button type="submit" size="lg" className="rounded-none h-14 px-10 bg-primary hover:bg-primary/90 text-white font-semibold text-sm tracking-wide uppercase shadow-none" data-testid="button-submit-inquiry">
+                        Submit
+                      </Button>
+                    </div>
                   </form>
                 </div>
               </FadeIn>

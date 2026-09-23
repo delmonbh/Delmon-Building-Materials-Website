@@ -147,7 +147,7 @@ function Services() {
   return (
     <section className="bg-[#e3e5e3] py-8 md:py-12" data-testid="section-services">
       <div className="mx-auto max-w-[1320px] px-4 md:px-8">
-        <div className="overflow-hidden rounded-2xl bg-[#ededed]">
+        <div className="overflow-hidden rounded-2xl border border-primary bg-[#ededed]">
           <div className="grid gap-8 bg-primary px-7 pb-10 pt-12 md:px-12 md:pb-12 md:pt-16 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-16">
             <FadeIn>
               <div className="mb-6 flex items-center gap-4">
@@ -167,7 +167,7 @@ function Services() {
               </Link>
             </FadeIn>
           </div>
-          <div className="grid gap-px bg-primary p-px md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px bg-primary md:grid-cols-2 lg:grid-cols-4">
               {services.map((service) => (
                 <div key={service.title} className="group flex min-h-[260px] flex-col items-center bg-[#ededed] px-7 py-9 text-center transition-colors hover:bg-[#f4f4f4] md:px-8">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#d5d5d5] bg-white">
@@ -255,7 +255,6 @@ function Products() {
 function Promise() {
   return (
     <section className="relative overflow-hidden bg-[#eeeeee] py-12 md:py-14" data-testid="section-promise">
-      <div className="absolute left-0 right-0 top-0 h-1 bg-primary" aria-hidden="true" />
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative">
         <div className="flex items-center gap-5 mb-7 md:mb-8">
           <span className="text-xs font-semibold tracking-[.18em] uppercase text-primary whitespace-nowrap">The Delmon promise</span>
@@ -299,7 +298,6 @@ export default function HomePage() {
         <Services />
         <Products />
         <Promise />
-        <div className="h-3 bg-primary" aria-hidden="true" />
       </main>
       <Footer />
     </div>

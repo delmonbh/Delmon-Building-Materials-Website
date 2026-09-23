@@ -12,7 +12,7 @@ export function Redesigned() {
   return (
     <section className="min-h-screen bg-[#e3e5e3] py-8 md:py-12 font-sans">
       <div className="mx-auto max-w-[1320px] px-4 md:px-8">
-        <div className="overflow-hidden rounded-2xl bg-[#ededed]">
+        <div className="overflow-hidden rounded-2xl border border-primary bg-[#ededed]">
           <div className="grid gap-8 bg-primary px-7 pb-10 pt-12 md:px-12 md:pb-12 md:pt-16 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-16">
             <div>
               <div className="mb-6 flex items-center gap-4">
@@ -32,7 +32,7 @@ export function Redesigned() {
               </a>
             </div>
           </div>
-          <div className="grid gap-px bg-primary p-px md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px bg-primary md:grid-cols-2 lg:grid-cols-4">
               {services.map((service) => (
                 <div key={service.title} className="group flex min-h-[260px] flex-col items-center bg-[#ededed] px-7 py-9 text-center transition-colors hover:bg-[#f4f4f4] md:px-8">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#d5d5d5] bg-white">
