@@ -76,8 +76,30 @@ function Heritage() {
   return (
     <section className="bg-white py-16 md:py-28" data-testid="section-heritage">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-[1.05fr_.95fr] gap-10 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-[.95fr_1.05fr] gap-10 lg:gap-20 items-center">
           <FadeIn>
+            <div className="rounded-3xl bg-[#f2f0ed] border border-[#e7e1db] p-7 sm:p-10 md:p-12 overflow-hidden relative">
+              <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[6rem] pointer-events-none" />
+              <div className="relative">
+                <span className="text-xs font-semibold tracking-[.18em] uppercase text-primary">The Delmon story</span>
+                <div className="mt-7 pb-8 border-b border-[#d8d0c9]">
+                  <span className="block font-display text-[5.5rem] sm:text-[7rem] leading-none tracking-tight text-[#603b39]">1974</span>
+                  <span className="block mt-3 text-sm font-medium uppercase tracking-[.16em] text-[#766963]">Established in Bahrain</span>
+                </div>
+                <div className="divide-y divide-[#d8d0c9]">
+                  <div className="flex gap-5 py-6">
+                    <span className="font-display text-xl text-primary">01</span>
+                    <div><h3 className="font-display text-xl text-foreground mb-1">Dependable supply</h3><p className="text-sm leading-relaxed text-muted-foreground">Materials selected for construction needs.</p></div>
+                  </div>
+                  <div className="flex gap-5 pt-6">
+                    <span className="font-display text-xl text-primary">02</span>
+                    <div><h3 className="font-display text-xl text-foreground mb-1">Regional connections</h3><p className="text-sm leading-relaxed text-muted-foreground">Backed by established sourcing relationships.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn delay={150}>
             <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-[2px] bg-primary" />
               <span className="text-primary font-semibold tracking-wider text-xs uppercase">Our Heritage</span>
@@ -91,28 +113,6 @@ function Heritage() {
             <Link href="/about" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:text-primary/80 transition-colors group" data-testid="link-home-about">
               Explore Our Story <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 md:p-12 overflow-hidden relative">
-              <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full border border-white/10 pointer-events-none" />
-              <div className="relative">
-                <span className="text-xs font-semibold tracking-[.18em] uppercase text-white/60">The Delmon story</span>
-                <div className="mt-8 mb-9 border-b border-white/20 pb-9 flex items-end gap-4">
-                  <span className="font-display text-7xl sm:text-8xl leading-none text-white">1974</span>
-                  <span className="text-sm text-white/70 pb-2">Established<br />in Bahrain</span>
-                </div>
-                <div className="space-y-0">
-                  <div className="grid grid-cols-[2.5rem_1fr] gap-4 py-5 border-b border-white/15">
-                    <span className="font-display text-xl text-rose-300">01</span>
-                    <div><h3 className="font-display text-xl mb-1">Dependable supply</h3><p className="text-sm leading-relaxed text-white/70">Materials selected for construction needs.</p></div>
-                  </div>
-                  <div className="grid grid-cols-[2.5rem_1fr] gap-4 py-5">
-                    <span className="font-display text-xl text-rose-300">02</span>
-                    <div><h3 className="font-display text-xl mb-1">Regional connections</h3><p className="text-sm leading-relaxed text-white/70">Backed by established sourcing relationships.</p></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </FadeIn>
         </div>
       </div>
@@ -267,8 +267,8 @@ function Promise() {
   return (
     <section className="py-16 md:py-20 bg-primary text-white" data-testid="section-promise">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-black/10">
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-100 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-black/10">
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/40 rounded-full blur-3xl pointer-events-none" />
           
           <FadeIn className="max-w-2xl relative z-10">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-foreground mb-4">

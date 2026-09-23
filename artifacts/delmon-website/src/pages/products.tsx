@@ -20,18 +20,21 @@ export default function ProductsPage() {
       id: "steel",
       title: "Deformed Steel",
       subtitle: "High-Yield Structural Reinforcement",
+      description: "Deformed steel reinforcement for concrete structures, available to support projects of different scales.",
       image: steelImg,
     },
     {
       id: "mesh",
       title: "Welded Wire Mesh",
       subtitle: "Precision-Welded Reinforcement",
+      description: "Welded mesh for consistent reinforcement across slabs and other concrete applications.",
       image: meshImg,
     },
     {
       id: "wood",
       title: "Wood, Plywood & MDF",
       subtitle: "Premium Formwork and Finishing Materials",
+      description: "Wood, plywood, and MDF options for formwork, interior work, and a range of site requirements.",
       image: woodImg,
     }
   ];
@@ -71,10 +74,13 @@ export default function ProductsPage() {
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[1.5rem] pointer-events-none"></div>
                   </div>
 
-                  <div className="px-2 pt-3 pb-2">
+                  <div className="px-3 pt-5 pb-3 flex flex-col flex-1">
+                    <p className="text-sm leading-relaxed text-muted-foreground mb-6 flex-1" data-testid={`text-product-description-${cat.id}`}>
+                      {cat.description}
+                    </p>
                     <Button 
                       asChild 
-                      className="w-full rounded-xl h-12 bg-white hover:bg-primary text-foreground hover:text-white border border-slate-200 transition-colors" 
+                      className="w-full rounded-xl h-12 bg-primary hover:bg-primary/90 text-white transition-colors" 
                       data-testid={`button-inquire-${cat.id}`}
                     >
                       <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
