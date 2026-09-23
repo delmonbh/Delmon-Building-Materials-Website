@@ -87,7 +87,7 @@ export function Navbar() {
               key={link.label} 
               href={link.href}
               className={cn(
-                "text-sm font-semibold uppercase tracking-wide p-4 border-b border-border/50 hover:bg-slate-50 transition-colors",
+                "text-sm font-semibold uppercase tracking-wide p-4 border-b border-border/50 hover:bg-neutral-50 transition-colors",
                 location === link.href ? "text-primary" : "text-foreground"
               )}
               data-testid={`link-mobile-${link.label.toLowerCase()}`}

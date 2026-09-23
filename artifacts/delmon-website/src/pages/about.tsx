@@ -38,7 +38,7 @@ export default function AboutPage() {
         />
 
         {/* Corporate Relationship */}
-        <section className="bg-slate-50 border-y border-border py-16 md:py-24 mb-24 md:mb-32">
+        <section className="bg-neutral-50 border-y border-border py-16 md:py-24 mb-24 md:mb-32">
           <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
             <FadeIn>
               <div className="max-w-5xl mx-auto grid md:grid-cols-[.75fr_1.25fr] rounded-[2rem] overflow-hidden shadow-lg shadow-slate-200/60 border border-[#e9e2df]">

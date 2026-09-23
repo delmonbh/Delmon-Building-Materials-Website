@@ -14,7 +14,7 @@ import meshImg from '@/assets/mesh.jpg';
 
 function Hero() {
   return (
-    <section className="relative pt-24 pb-12 md:pt-36 md:pb-16 overflow-hidden bg-slate-100 border-b border-slate-200">
+    <section className="relative pt-24 pb-12 md:pt-36 md:pb-16 overflow-hidden bg-neutral-100 border-b border-neutral-200">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           <div className="max-w-xl order-2 lg:order-1">
@@ -47,7 +47,7 @@ function Hero() {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white hover:bg-slate-50 text-foreground border-slate-200 shadow-sm h-12 px-8 text-sm font-semibold rounded-md" asChild data-testid="hero-button-contact">
+              <Button size="lg" variant="outline" className="bg-white hover:bg-neutral-50 text-foreground border-neutral-200 shadow-sm h-12 px-8 text-sm font-semibold rounded-md" asChild data-testid="hero-button-contact">
                 <Link href="/contact">Contact Sales</Link>
               </Button>
             </FadeIn>
@@ -164,7 +164,7 @@ function Services() {
                 <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-md mb-8">
                   Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
                 </p>
-                <Link href="/services" className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-md font-semibold text-sm hover:bg-slate-100 transition-colors shadow-sm" data-testid="link-home-services">
+                <Link href="/services" className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-md font-semibold text-sm hover:bg-neutral-100 transition-colors shadow-sm" data-testid="link-home-services">
                   View All Services
                 </Link>
               </FadeIn>
@@ -215,7 +215,7 @@ function Products() {
   ];
 
   return (
-    <section className="bg-slate-50 relative py-16 md:py-24" data-testid="section-products">
+    <section className="bg-neutral-50 relative py-16 md:py-24" data-testid="section-products">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <FadeIn>
@@ -230,7 +230,7 @@ function Products() {
             </h2>
           </FadeIn>
           <FadeIn delay={150}>
-            <Button variant="outline" className="border-slate-300 text-foreground hover:bg-slate-100" asChild data-testid="link-home-products">
+            <Button variant="outline" className="border-neutral-300 text-foreground hover:bg-neutral-100" asChild data-testid="link-home-products">
               <Link href="/products">View All Inventory</Link>
             </Button>
           </FadeIn>
@@ -267,7 +267,7 @@ function Promise() {
   return (
     <section className="py-16 md:py-20 bg-primary text-white" data-testid="section-promise">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-100 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-black/10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-neutral-100 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-black/10">
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/40 rounded-full blur-3xl pointer-events-none" />
           
           <FadeIn className="max-w-2xl relative z-10">

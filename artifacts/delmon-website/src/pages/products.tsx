@@ -58,7 +58,7 @@ export default function ProductsPage() {
                 <div 
                   id={cat.id}
                   data-testid={`product-section-${cat.id}`}
-                  className="group flex flex-col h-full bg-slate-50 rounded-[2rem] p-3 border border-slate-100 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500"
+                  className="group flex flex-col h-full bg-neutral-50 rounded-[2rem] p-3 border border-neutral-100 hover:border-neutral-300 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500"
                 >
                   <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-[1.5rem] overflow-hidden">
                     <img 

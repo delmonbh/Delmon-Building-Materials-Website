@@ -50,7 +50,7 @@ export default function ContactPage() {
             
             <div className="lg:col-span-5 space-y-10">
               <FadeIn delay={150}>
-                <div className="bg-slate-50 border border-border p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden">
+                <div className="bg-neutral-50 border border-border p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full"></div>
                   
                   <div className="flex items-start gap-6 group">
@@ -116,7 +116,7 @@ export default function ContactPage() {
                           name="name" 
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full h-14 px-4 border-b-2 border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                          className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                           required
                           data-testid="input-name"
                         />
@@ -129,7 +129,7 @@ export default function ContactPage() {
                           name="company" 
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full h-14 px-4 border-b-2 border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                          className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                           required
                           data-testid="input-company"
                         />
@@ -144,7 +144,7 @@ export default function ContactPage() {
                         name="subject" 
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full h-14 px-4 border-b-2 border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                        className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                         required
                         data-testid="input-subject"
                       />
@@ -158,7 +158,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={6}
-                        className="w-full p-4 border-b-2 border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base resize-none rounded-none"
+                        className="w-full p-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base resize-none rounded-none"
                         required
                         data-testid="input-message"
                       ></textarea>
