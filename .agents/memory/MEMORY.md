@@ -1,0 +1,1 @@
+- [Bahrain imagery](bahrain-imagery.md) — Avoid generic Gulf skylines; keep Delmon visuals specific to Bahrain and construction materials.

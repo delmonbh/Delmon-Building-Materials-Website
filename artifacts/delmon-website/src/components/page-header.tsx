@@ -6,9 +6,11 @@ interface PageHeaderProps {
   subtitle: string;
   description: string;
   image: string;
+  imageAlt?: string;
+  imageClassName?: string;
 }
 
-export function PageHeader({ title, subtitle, description, image }: PageHeaderProps) {
+export function PageHeader({ title, subtitle, description, image, imageAlt, imageClassName = '' }: PageHeaderProps) {
   return (
     <header className="pt-[94px] pb-8 md:pb-12 mb-12 md:mb-20">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col">
@@ -39,8 +41,8 @@ export function PageHeader({ title, subtitle, description, image }: PageHeaderPr
           <div className="w-full h-[300px] md:h-[460px] relative bg-muted group overflow-hidden rounded-2xl md:rounded-3xl">
             <img 
               src={image} 
-              alt={typeof title === 'string' ? title : subtitle} 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              alt={imageAlt ?? (typeof title === 'string' ? title : subtitle)} 
+              className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${imageClassName}`}
             />
             {/* Architectural overlay accents */}
             <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply pointer-events-none"></div>
