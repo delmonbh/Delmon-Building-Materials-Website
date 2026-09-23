@@ -219,7 +219,7 @@ function Products() {
             </h2>
           </FadeIn>
           <FadeIn delay={150}>
-            <Button variant="outline" className="border-neutral-300 text-foreground hover:bg-neutral-100" asChild data-testid="link-home-products">
+            <Button className="bg-primary text-white hover:bg-primary/90 hover:text-white" asChild data-testid="link-home-products">
               <Link href="/products">View All Inventory</Link>
             </Button>
           </FadeIn>
