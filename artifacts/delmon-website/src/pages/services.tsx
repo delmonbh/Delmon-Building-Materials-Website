@@ -136,8 +136,8 @@ export default function ServicesPage() {
 
               <div className="relative flex flex-col justify-center bg-[#e5e5e5] px-8 py-10 sm:p-12 lg:px-12 overflow-hidden">
                 <div className="absolute left-0 top-0 h-full w-1 bg-primary" aria-hidden="true" />
-                <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
-                <div className="absolute -right-10 -top-14 h-44 w-44 rounded-full border border-[#d0d0d0]" aria-hidden="true" />
+                <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full border border-[#d0d0d0] sm:-right-20 sm:-top-24 sm:h-64 sm:w-64" aria-hidden="true" />
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full border border-[#d0d0d0] sm:-right-10 sm:-top-14 sm:h-44 sm:w-44" aria-hidden="true" />
                 <span className="relative text-xs font-semibold uppercase tracking-[.18em] text-primary mb-6">From plan to site</span>
                 <div className="relative divide-y divide-[#c8c8c8]">
                   {["Material sourcing", "Supply planning", "Delivery coordination"].map((step, index) => (
