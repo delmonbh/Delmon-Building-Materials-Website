@@ -72,36 +72,36 @@ export default function ServicesPage() {
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100} className="h-full">
                 <div
-                  className={`group h-full min-h-[390px] rounded-[2rem] p-8 lg:p-9 border border-white/10 hover:shadow-xl hover:shadow-[#363638]/20 transition-shadow duration-500 flex flex-col relative overflow-hidden ${
+                  className={`group h-full min-h-[390px] rounded-[2rem] p-8 lg:p-9 border border-[#6f6f6f]/20 hover:shadow-xl hover:shadow-[#363638]/15 transition-shadow duration-500 flex flex-col relative overflow-hidden ${
                     idx % 2 === 0
-                      ? "bg-[linear-gradient(150deg,#AE4951_0%,#A94D55_60%,#8F555A_82%,#59595B_100%)]"
-                      : "bg-[linear-gradient(150deg,#6F6F6F_0%,#707072_65%,#656668_84%,#535557_100%)]"
+                      ? "bg-[linear-gradient(165deg,#DBAEB2_0%,#D2A0A4_76%,#C58A90_92%,#87434B_100%)]"
+                      : "bg-[linear-gradient(165deg,#D4D4D4_0%,#C7C7C7_76%,#B5B5B5_92%,#696969_100%)]"
                   }`}
                   data-testid={`service-card-${srv.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="absolute right-0 top-0 w-44 h-44 rounded-full bg-white/[0.04] blur-2xl pointer-events-none" />
-                  <div className="absolute right-6 top-6 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.4rem] border border-white/20 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] flex items-center justify-center text-[#f7e6e7] pointer-events-none" aria-hidden="true">
+                  <div className="absolute right-6 top-6 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.4rem] border border-white/45 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] flex items-center justify-center text-[#703940] pointer-events-none" aria-hidden="true">
                     <srv.icon className="w-9 h-9 sm:w-11 sm:h-11 stroke-[1.4]" />
                   </div>
 
                   <div className="flex items-center gap-3 mb-7 relative z-10 pr-16 sm:pr-20">
-                    <span className="text-5xl lg:text-[3.5rem] leading-none font-display font-light text-[#efdddd] drop-shadow-sm">
+                    <span className="text-5xl lg:text-[3.5rem] leading-none font-display font-light text-[#784149]">
                       0{idx + 1}
                     </span>
-                    <h2 className="text-2xl lg:text-[1.75rem] font-display font-medium text-white leading-tight">
+                    <h2 className="text-2xl lg:text-[1.75rem] font-display font-medium text-[#333436] leading-tight">
                       {srv.title}
                     </h2>
                   </div>
 
-                  <p className="text-base lg:text-lg text-white/90 leading-relaxed mb-8 flex-1 relative z-10 max-w-[28rem] text-left">
+                  <p className="text-base lg:text-lg text-[#393939] leading-relaxed mb-8 flex-1 relative z-10 max-w-[28rem] text-left">
                     {srv.description}
                   </p>
 
-                  <ul className="space-y-4 bg-white/[0.06] rounded-2xl p-5 sm:p-6 border border-[#e0cbcd]/60 relative z-10">
+                  <ul className="space-y-4 bg-white/35 rounded-2xl p-5 sm:p-6 border border-white/60 relative z-10">
                     {srv.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-4 text-left">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#edbfc2] mt-2 shrink-0"></div>
-                        <span className="text-sm font-medium text-white/90 leading-relaxed">{detail}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#9f414a] mt-2 shrink-0"></div>
+                        <span className="text-sm font-medium text-[#393939] leading-relaxed">{detail}</span>
                       </li>
                     ))}
                   </ul>
