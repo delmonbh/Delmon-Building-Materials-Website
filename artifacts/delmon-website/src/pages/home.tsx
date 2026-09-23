@@ -145,42 +145,42 @@ function Services() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-primary text-white selection:bg-white/30" data-testid="section-services">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+    <section className="bg-primary py-5 md:py-10" data-testid="section-services">
+      <div className="max-w-[1320px] mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 rounded-2xl bg-[#f2f2f2] px-6 py-12 md:px-12 md:py-16 lg:px-16">
           
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-32">
               <FadeIn>
                 <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-8 h-[2px] bg-white/50"></div>
-                  <span className="text-white/90 font-semibold tracking-wider text-xs uppercase">
+                  <div className="w-8 h-[2px] bg-primary"></div>
+                  <span className="text-primary font-semibold tracking-wider text-xs uppercase">
                     Capabilities
                   </span>
                 </div>
-                <h2 className="text-3xl md:text-5xl font-display font-medium leading-tight text-white mb-6">
-                  Industrial Supply <br/><span className="italic text-white/80">Engineered for Scale</span>
+                <h2 className="text-3xl md:text-5xl font-display font-medium leading-tight text-[#414141] mb-6">
+                  Industrial Supply <br/><span className="italic text-primary">Engineered for Scale</span>
                 </h2>
-                <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-md mb-8">
+                <p className="text-[#555555] text-base md:text-lg leading-relaxed max-w-md mb-8">
                   Comprehensive procurement and logistics solutions tailored for serious contractors. We handle the complexity of global sourcing so you can focus on building.
                 </p>
-                <Link href="/services" className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-md font-semibold text-sm hover:bg-neutral-100 transition-colors shadow-sm" data-testid="link-home-services">
+                <Link href="/services" className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#8d343d] transition-colors shadow-sm" data-testid="link-home-services">
                   View All Services
                 </Link>
               </FadeIn>
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col gap-8 md:gap-10 lg:mt-16">
+          <div className="lg:col-span-7 flex flex-col gap-7 md:gap-8 lg:mt-12">
             {services.map((srv, idx) => (
               <FadeIn key={srv.title} delay={idx * 100}>
-                <div className="group border-t border-white/20 pt-8 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start transition-colors duration-500 hover:border-white/40">
-                  <div className="w-14 h-14 shrink-0 bg-black/10 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-500">
-                    <srv.icon className="w-6 h-6 text-white" />
+                <div className="group border-t border-[#d0d0d0] pt-7 flex flex-col sm:flex-row gap-5 sm:gap-7 items-start transition-colors duration-500 hover:border-primary/60">
+                  <div className="w-14 h-14 shrink-0 bg-white border border-[#e2e2e2] rounded-xl flex items-center justify-center group-hover:border-primary/40 transition-all duration-500">
+                    <srv.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2">{srv.title}</h3>
-                    <p className="text-white/80 text-base leading-relaxed">
+                    <h3 className="text-xl md:text-2xl font-display font-medium text-[#414141] mb-2">{srv.title}</h3>
+                    <p className="text-[#555555] text-base leading-relaxed">
                       {srv.description}
                     </p>
                   </div>
@@ -265,10 +265,10 @@ function Products() {
 
 function Promise() {
   return (
-    <section className="relative overflow-hidden bg-[#eeeeee] py-20 md:py-28" data-testid="section-promise">
+    <section className="relative overflow-hidden bg-[#eeeeee] py-12 md:py-14" data-testid="section-promise">
       <div className="absolute left-0 right-0 top-0 h-1 bg-[#AE4951]" aria-hidden="true" />
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative">
-        <div className="flex items-center gap-5 mb-10 md:mb-14">
+        <div className="flex items-center gap-5 mb-7 md:mb-8">
           <span className="text-xs font-semibold tracking-[.18em] uppercase text-[#AE4951] whitespace-nowrap">The Delmon promise</span>
           <span className="h-px w-full bg-[#d0d0d0]" aria-hidden="true" />
         </div>
@@ -310,6 +310,7 @@ export default function HomePage() {
         <Services />
         <Products />
         <Promise />
+        <div className="h-3 bg-[#AE4951]" aria-hidden="true" />
       </main>
       <Footer />
     </div>
