@@ -113,7 +113,7 @@ export default function ServicesPage() {
               </div>
               
               <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Button asChild size="lg" className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-xl hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
+                <Button asChild size="lg" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 text-slate-900 hover:text-slate-950 border border-slate-300 rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-xl hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
                     <ArrowRight className="ml-2 w-5 h-5" />
