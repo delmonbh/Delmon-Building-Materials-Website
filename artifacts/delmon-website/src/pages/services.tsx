@@ -102,18 +102,17 @@ export default function ServicesPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
           <FadeIn>
-            <div className="bg-slate-900 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border border-slate-800">
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800/40 to-transparent pointer-events-none"></div>
+            <div className="bg-neutral-100 rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden border border-neutral-200">
               
               <div className="relative z-10 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-display font-medium text-white mb-4">Ready to streamline your supply chain?</h3>
-                <p className="text-slate-300 text-lg md:text-xl leading-relaxed font-light">
+                <h3 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Ready to streamline your supply chain?</h3>
+                <p className="text-neutral-600 text-lg md:text-xl leading-relaxed font-light">
                   Engage with our procurement specialists to discuss your upcoming project timeline and volume requirements.
                 </p>
               </div>
               
               <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Button asChild size="lg" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 text-slate-900 hover:text-slate-950 border border-slate-300 rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-xl hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
+                <Button asChild size="lg" className="w-full md:w-auto bg-neutral-300 hover:bg-neutral-400 text-neutral-900 hover:text-neutral-950 border border-neutral-400 rounded-2xl font-semibold px-10 h-14 tracking-wide shadow-sm hover:-translate-y-1 transition-transform" data-testid="button-services-contact">
                   <Link href="/contact">
                     Contact Sales
                     <ArrowRight className="ml-2 w-5 h-5" />
