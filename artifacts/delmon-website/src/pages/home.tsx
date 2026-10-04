@@ -296,6 +296,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <div className="border-b border-border bg-white px-4 py-6 md:py-8">
+          <p className="font-display text-2xl md:text-3xl text-primary" style={{ textAlign: 'center' }} data-testid="text-wholesale-retail">
+            Wholesale and retail
+          </p>
+        </div>
         <Heritage />
         <Services />
         <Products />
