@@ -11,6 +11,7 @@ import heroBg from '@/assets/home-hero-bahrain-materials.jpg';
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
+import timberImg from '@/assets/timber.jpg';
 
 function Hero() {
   return (
@@ -202,6 +203,11 @@ function Products() {
       title: "Wood, Plywood & MDF",
       description: "Premium woods tailored for formwork, scaffolding, and finishes.",
       image: woodImg,
+    },
+    {
+      title: "Timber, Lumber & Softwood",
+      description: "Timber, lumber, and softwood for framing, formwork, and site use.",
+      image: timberImg,
     }
   ];
 
@@ -227,9 +233,9 @@ function Products() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {categories.map((cat, idx) => (
-            <FadeIn key={cat.title} delay={idx * 150}>
+            <FadeIn key={cat.title} delay={idx * 150} className="h-full">
               <div className="group rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
@@ -239,7 +245,7 @@ function Products() {
                   />
                 </div>
                 
-                <div className="p-6 md:p-8 flex flex-col flex-grow bg-white z-10">
+                <div className="p-6 flex flex-col flex-grow bg-white z-10">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{cat.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {cat.description}

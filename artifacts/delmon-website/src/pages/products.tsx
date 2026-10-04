@@ -10,10 +10,11 @@ import { usePageSetup } from '@/hooks/use-page-setup';
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
+import timberImg from '@/assets/timber.jpg';
 import productsHeaderImg from '@/assets/products-header.jpg';
 
 export default function ProductsPage() {
-  usePageSetup("Products | Delmon Building Materials", "Explore our premium inventory of deformed steel, welded wire mesh, white wood, plywood, and MDF for serious contractors.");
+  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood for construction.");
 
   const categories = [
     {
@@ -36,6 +37,13 @@ export default function ProductsPage() {
       subtitle: "Premium Formwork and Finishing Materials",
       description: "Wood, plywood, and MDF options for formwork, interior work, and a range of site requirements.",
       image: woodImg,
+    },
+    {
+      id: "timber",
+      title: "Timber, Lumber & Softwood",
+      subtitle: "Timber for Construction and Site Work",
+      description: "Timber, lumber, and softwood for formwork, framing, and general construction requirements.",
+      image: timberImg,
     }
   ];
 
@@ -47,12 +55,12 @@ export default function ProductsPage() {
         <PageHeader 
           subtitle="Inventory"
           title={<>Materials for <br /><span className="italic text-muted-foreground">Serious Construction</span></>}
-          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, white wood, plywood, and MDF."
+          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood."
           image={productsHeaderImg}
         />
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8" data-testid="section-products-list">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {categories.map((cat, idx) => (
               <FadeIn key={cat.id} delay={idx * 150} className="flex flex-col h-full">
                 <div 
@@ -60,7 +68,7 @@ export default function ProductsPage() {
                   data-testid={`product-section-${cat.id}`}
                   className="group flex flex-col h-full bg-neutral-50 rounded-[2rem] p-3 border border-neutral-100 hover:border-neutral-300 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500"
                 >
-                  <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-[1.5rem] overflow-hidden">
+                  <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] rounded-[1.5rem] overflow-hidden">
                     <img 
                       src={cat.image} 
                       alt={cat.title}
@@ -80,7 +88,7 @@ export default function ProductsPage() {
                     </p>
                     <Button 
                       asChild 
-                      className="w-full rounded-xl h-12 bg-primary hover:bg-primary/90 text-white transition-colors" 
+                      className="w-full rounded-xl min-h-12 h-auto whitespace-normal py-3 text-center bg-primary hover:bg-primary/90 text-white transition-colors" 
                       data-testid={`button-inquire-${cat.id}`}
                     >
                       <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
