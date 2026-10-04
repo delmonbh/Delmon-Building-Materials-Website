@@ -117,7 +117,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
+        <section className="max-w-[1200px] mx-auto px-4 md:px-8">
           <FadeIn>
             <div className="grid lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,.75fr)] overflow-hidden rounded-[2rem] bg-[#f3f3f3]">
               <div className="px-8 pt-12 pb-10 sm:px-12 lg:px-16 lg:pt-16 lg:pb-0">
