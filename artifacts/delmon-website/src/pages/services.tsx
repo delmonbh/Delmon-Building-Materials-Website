@@ -109,6 +109,12 @@ export default function ServicesPage() {
               </FadeIn>
             ))}
           </div>
+          <div className="mt-8 border-y border-border py-6 md:py-8">
+            <p className="font-display text-2xl md:text-3xl leading-relaxed text-primary" style={{ textAlign: 'center' }} data-testid="text-services-wholesale-pickup">
+              Wholesale and Retail<br />
+              Easy Pickup and Loading
+            </p>
+          </div>
         </section>
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-20 md:mt-32">
