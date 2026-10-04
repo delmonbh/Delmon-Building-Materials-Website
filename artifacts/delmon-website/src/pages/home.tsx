@@ -75,7 +75,7 @@ function Hero() {
 
 function Heritage() {
   return (
-    <section className="bg-white py-16 md:py-28" data-testid="section-heritage">
+    <section className="bg-white pt-8 pb-16 md:pt-12 md:pb-28" data-testid="section-heritage">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[.95fr_1.05fr] lg:gap-x-20 items-center">
           <FadeIn className="order-2 lg:order-1 lg:col-start-1 lg:row-span-2 lg:self-center">
@@ -304,7 +304,7 @@ export default function HomePage() {
         <Hero />
         <div className="border-b border-border bg-white px-4 py-6 md:py-8">
           <p className="font-display text-2xl md:text-3xl text-primary" style={{ textAlign: 'center' }} data-testid="text-wholesale-retail">
-            Wholesale and retail
+            Wholesale and Retail
           </p>
         </div>
         <Heritage />

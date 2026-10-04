@@ -88,7 +88,7 @@ export default function ProductsPage() {
                     </p>
                     <Button 
                       asChild 
-                      className="w-full rounded-xl min-h-12 h-auto whitespace-normal py-3 text-center bg-primary hover:bg-primary/90 text-white transition-colors" 
+                      className="self-center w-auto max-w-full rounded-xl min-h-12 h-auto whitespace-normal px-6 py-3 text-center bg-primary hover:bg-primary/90 text-white transition-colors" 
                       data-testid={`button-inquire-${cat.id}`}
                     >
                       <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
