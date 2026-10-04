@@ -83,7 +83,7 @@ export default function ProductsPage() {
                   </div>
 
                   <div className="px-3 pt-5 pb-3 flex flex-col flex-1">
-                    <p className="text-sm leading-relaxed text-muted-foreground mb-6 flex-1" data-testid={`text-product-description-${cat.id}`}>
+                    <p className="text-sm leading-relaxed text-muted-foreground mb-6 flex-1 text-center" style={{ textAlign: 'center' }} data-testid={`text-product-description-${cat.id}`}>
                       {cat.description}
                     </p>
                     <Button 
