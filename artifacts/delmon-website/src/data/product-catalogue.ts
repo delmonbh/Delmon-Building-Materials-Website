@@ -47,8 +47,8 @@ export const productCatalogue: CatalogueGroup[] = [
       { name: 'Marine Ply (WBP) · Vietnam', origin: 'Vietnam', specification: "18 mm · 4′ × 8′", remarks: 'Grade A · listed for 12 reuses' },
       { name: 'Marine Ply (WBP) · Green PVC', specification: "18 mm · 4′ × 8′", remarks: 'Grade A · listed for 12 reuses' },
       { name: 'PVC Plywood · White', specification: '4 mm', remarks: 'Grade A' },
-      { name: 'Oak Plywood', specification: '4 mm × 3 × 7', remarks: 'Grade A · sheet-size units are not specified in the list' },
-      { name: 'Teak Plywood', specification: '4 mm × 3 × 7', remarks: 'Grade A · sheet-size units are not specified in the list' },
+      { name: 'Oak Plywood', specification: '4 mm × 3 × 7', remarks: 'Grade A · sheet size units are not specified in the list' },
+      { name: 'Teak Plywood', specification: '4 mm × 3 × 7', remarks: 'Grade A · sheet size units are not specified in the list' },
     ],
   },
   {

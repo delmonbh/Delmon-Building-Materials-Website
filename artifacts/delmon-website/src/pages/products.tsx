@@ -22,14 +22,14 @@ export default function ProductsPage() {
     {
       id: "steel",
       title: "Deformed Steel",
-      subtitle: "High-Yield Structural Reinforcement",
+      subtitle: "High Yield Structural Reinforcement",
       description: "Deformed steel reinforcement for concrete structures, available to support projects of different scales.",
       image: steelImg,
     },
     {
       id: "mesh",
       title: "Welded Wire Mesh",
-      subtitle: "Precision-Welded Reinforcement",
+      subtitle: "Precision Welded Reinforcement",
       description: "Welded mesh for consistent reinforcement across slabs and other concrete applications.",
       image: meshImg,
     },

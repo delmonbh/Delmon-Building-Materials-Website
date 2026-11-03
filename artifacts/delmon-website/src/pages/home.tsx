@@ -24,7 +24,7 @@ function Hero() {
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="w-8 h-[2px] bg-primary"></div>
                 <span className="text-primary font-semibold tracking-wider text-xs uppercase">
-                  Est. 1974 &mdash; Kingdom of Bahrain
+                  Est. 1974, Kingdom of Bahrain
                 </span>
               </div>
             </FadeIn>
@@ -67,7 +67,7 @@ function Hero() {
               </div>
               <img
                 src={anniversaryBadge}
-                alt="Delmon Building Materials — 50+ years of expertise, established 1974"
+                alt="Delmon Building Materials, 50+ years of expertise, established 1974"
                 className="absolute right-0 top-1/2 z-10 w-24 sm:w-40 xl:w-44 translate-x-1/2 -translate-y-1/2 drop-shadow-lg"
                 data-testid="image-hero-anniversary"
               />
@@ -116,7 +116,7 @@ function Heritage() {
               Built on experience.<br /><span className="italic text-muted-foreground">Rooted in Bahrain.</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Since 1974, Delmon Building Materials has supported construction across Bahrain with essential structural materials. As a division of Mohamed Jalal &amp; Sons, our long-standing relationships help us respond to varied project needs.
+              Since 1974, Delmon Building Materials has supported construction across Bahrain with essential structural materials. As a division of Mohamed Jalal &amp; Sons, our longstanding relationships help us respond to varied project needs.
             </p>
           </FadeIn>
           <FadeIn delay={225} className="order-3 lg:col-start-2 lg:row-start-2 lg:self-start">
@@ -135,7 +135,7 @@ function Services() {
     {
       icon: Package,
       title: "Material Supply",
-      description: "Consistent, high-volume supply of essential structural materials."
+      description: "Consistent supply of essential structural materials in large volumes."
     },
     {
       icon: Globe,
@@ -198,12 +198,12 @@ function Products() {
   const categories = [
     {
       title: "Deformed Steel",
-      description: "High-yield deformed steel rebar for structural reinforcement.",
+      description: "High yield deformed steel rebar for structural reinforcement.",
       image: steelImg,
     },
     {
       title: "Welded Wire Mesh",
-      description: "Precision-welded wire mesh providing superior tensile strength.",
+      description: "Precision welded wire mesh providing superior tensile strength.",
       image: meshImg,
     },
     {
@@ -243,7 +243,7 @@ function Products() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {categories.map((cat, idx) => (
             <FadeIn key={cat.title} delay={idx * 150} className="h-full">
-              <div className="group rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+              <Link href="/products" aria-label={`Explore ${cat.title}`} data-testid={`link-home-product-${idx}`} className="group rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-all duration-300 flex flex-col h-full">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
                     src={cat.image} 
@@ -258,7 +258,7 @@ function Products() {
                     {cat.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           ))}
         </div>
@@ -285,7 +285,7 @@ function Promise() {
           <FadeIn delay={150}>
             <div className="border-l-2 border-primary pl-6 md:pl-8">
               <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-7" style={{ textAlign: "left" }}>
-                We understand that in construction, delays and sub-standard materials cost more than just money—they cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
+                We understand that in construction, delays and substandard materials cost more than just money. They cost reputation. Our operation is built to ensure you never have to worry about your supply chain.
               </p>
               <Button size="lg" className="bg-primary text-white hover:text-white hover:opacity-90 rounded-full font-semibold px-7 h-12 shadow-sm" asChild data-testid="link-home-promise">
                 <Link href="/contact">

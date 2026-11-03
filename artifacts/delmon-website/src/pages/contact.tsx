@@ -47,7 +47,7 @@ export default function ContactPage() {
       setStatus('success');
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
     } catch {
-      setErrorMessage('Your inquiry could not be submitted. Your message has been kept—please try again, or contact delmon@jalal.com.');
+      setErrorMessage('Your inquiry could not be submitted. Your message has been kept. Please try again, or contact delmon@jalal.com.');
       setStatus('error');
     }
   };
@@ -69,11 +69,11 @@ export default function ContactPage() {
         />
 
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             
-            <div className="lg:col-span-5 space-y-10">
-              <FadeIn delay={150}>
-                <div className="bg-neutral-50 border border-border rounded-2xl p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden">
+            <div className="lg:col-span-5">
+              <FadeIn delay={150} className="lg:h-full">
+                <div className="bg-neutral-50 border border-border rounded-2xl p-8 md:p-12 shadow-sm space-y-10 relative overflow-hidden lg:h-full">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full"></div>
                   
                   <div className="flex items-start gap-6 group">
@@ -123,8 +123,8 @@ export default function ContactPage() {
             </div>
 
             <div className="lg:col-span-7">
-              <FadeIn delay={300}>
-                <div className="bg-white border border-border rounded-2xl overflow-hidden p-6 md:p-8 shadow-xl shadow-black/5 relative">
+              <FadeIn delay={300} className="lg:h-full">
+                <div className="bg-white border border-border rounded-2xl overflow-hidden p-6 md:p-8 shadow-xl shadow-black/5 relative lg:h-full">
                   <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
                   
                   <h3 className="text-2xl font-display font-medium text-foreground mb-5">Send an Inquiry</h3>
