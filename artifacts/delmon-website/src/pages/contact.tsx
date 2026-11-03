@@ -4,7 +4,6 @@ import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import contactCommunicationImg from '@/assets/contact-communication-still-life.jpg';
@@ -208,6 +207,7 @@ export default function ContactPage() {
                       </Button>
                     </div>
                     </fieldset>
+                    {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Your inquiry has been accepted for sending. Thank you for contacting Delmon.</div>}
                     {status === 'error' && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-900" data-testid="text-inquiry-error">{errorMessage}</div>}
                   </form>
                 </div>
@@ -218,19 +218,6 @@ export default function ContactPage() {
         </div>
       </main>
       <Footer />
-      <Dialog open={status === 'success'} onOpenChange={(open) => { if (!open) setStatus('idle'); }}>
-        <DialogContent className="max-w-md rounded-2xl p-8">
-          <DialogHeader>
-            <DialogTitle className="font-display text-2xl text-primary">Inquiry submitted</DialogTitle>
-            <DialogDescription className="pt-3 text-base leading-relaxed text-foreground" data-testid="text-inquiry-success">
-              Thank you for submitting your inquiry, we'll get back to you shortly.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogClose asChild>
-            <Button className="mx-auto mt-3 rounded-xl px-7" data-testid="button-close-inquiry-success">Close</Button>
-          </DialogClose>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }
