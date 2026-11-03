@@ -14,3 +14,9 @@ For wide banners, verify generated dimensions before using an image: a panoramic
 **Why:** A vertically spread scene forced the wide crop to cut off the flag or hide most of the materials.
 
 **How to apply:** Crop to the actual header ratio after generation, then inspect desktop and mobile positioning. Do not assume the prompt's aspect-ratio wording controls the output dimensions.
+
+Show straight reinforcing steel, not curved or bent bars, in Delmon product and homepage imagery.
+
+**Why:** The user explicitly requested straight steel in these visuals.
+
+**How to apply:** When selecting or editing steel images, check the rods are rigid and straight along their length; ribbing and bundle straps should not look like bent rods.

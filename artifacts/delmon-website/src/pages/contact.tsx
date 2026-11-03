@@ -124,19 +124,19 @@ export default function ContactPage() {
 
             <div className="lg:col-span-7">
               <FadeIn delay={300}>
-                <div className="bg-white border border-border rounded-2xl overflow-hidden p-6 md:p-12 shadow-xl shadow-black/5 relative">
+                <div className="bg-white border border-border rounded-2xl overflow-hidden p-6 md:p-8 shadow-xl shadow-black/5 relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
                   
-                  <h3 className="text-3xl font-display font-medium text-foreground mb-8">Send an Inquiry</h3>
+                  <h3 className="text-2xl font-display font-medium text-foreground mb-5">Send an Inquiry</h3>
                   
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="hidden" aria-hidden="true">
                       <label htmlFor="website">Leave this field blank</label>
                       <input id="website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
                     </div>
-                    <fieldset disabled={status === 'sending'} className="space-y-8 disabled:opacity-70">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                      <div className="space-y-3">
+                    <fieldset disabled={status === 'sending'} className="space-y-5 disabled:opacity-70">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="space-y-2">
                         <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Full Name</label>
                         <input 
                           type="text" 
@@ -144,12 +144,12 @@ export default function ContactPage() {
                           name="name" 
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                          className="w-full h-11 px-3 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                           required
                           data-testid="input-name"
                         />
                       </div>
-                      <div className="space-y-3">
+                      <div className="space-y-2">
                         <label htmlFor="company" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Company</label>
                         <input 
                           type="text" 
@@ -157,21 +157,22 @@ export default function ContactPage() {
                           name="company" 
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                          className="w-full h-11 px-3 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                           required
                           data-testid="input-company"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-2">
                       <label htmlFor="email" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Your Email</label>
                       <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} autoComplete="email" required maxLength={254}
-                        className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                        className="w-full h-11 px-3 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                         data-testid="input-email" />
                     </div>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       <label htmlFor="subject" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Material Required / Subject</label>
                       <input 
                         type="text" 
@@ -179,33 +180,33 @@ export default function ContactPage() {
                         name="subject" 
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                        className="w-full h-11 px-3 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
                         required
                         data-testid="input-subject"
                       />
                     </div>
+                    </div>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       <label htmlFor="message" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Message</label>
                       <textarea 
                         id="message"
                         name="message" 
                         value={formData.message}
                         onChange={handleChange}
-                        rows={6}
-                        className="w-full p-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base resize-none rounded-none"
+                        rows={3}
+                        className="w-full p-3 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base resize-y rounded-none"
                         required
                         data-testid="input-message"
                       ></textarea>
                     </div>
 
                     <div className="flex justify-center">
-                      <Button type="submit" size="lg" disabled={status === 'sending'} className="rounded-none h-14 px-10 bg-primary hover:bg-primary/90 text-white font-semibold text-sm tracking-wide uppercase shadow-none" data-testid="button-submit-inquiry">
+                      <Button type="submit" disabled={status === 'sending'} className="rounded-xl h-10 px-7 bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-none" data-testid="button-submit-inquiry">
                         {status === 'sending' ? 'Sending…' : 'Submit'}
                       </Button>
                     </div>
                     </fieldset>
-                    <p className="text-xs text-muted-foreground" style={{ textAlign: 'center' }}>Your inquiry is sent securely through FormSubmit to delmon@jalal.com.</p>
                     {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Your inquiry has been accepted for sending. Thank you for contacting Delmon.</div>}
                     {status === 'error' && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-900" data-testid="text-inquiry-error">{errorMessage}</div>}
                   </form>

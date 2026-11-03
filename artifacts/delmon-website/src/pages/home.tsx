@@ -7,9 +7,9 @@ import { ArrowRight, ArrowUpRight, Package, Truck, Info, Globe } from 'lucide-re
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
 
-import heroBg from '@/assets/home-hero-bahrain-materials.jpg';
+import heroBg from '@/assets/home-hero-bahrain-straight-steel.jpg';
 import anniversaryBadge from '@/assets/anniversary-badge-adobe.png';
-import steelImg from '@/assets/steel.jpg';
+import steelImg from '@/assets/steel-straight.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
 import timberImg from '@/assets/timber.jpg';

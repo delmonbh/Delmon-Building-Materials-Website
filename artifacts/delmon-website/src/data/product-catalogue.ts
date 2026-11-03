@@ -30,8 +30,8 @@ export const productCatalogue: CatalogueGroup[] = [
     id: 'solid-timber',
     title: 'Timber & Joinery',
     products: [
-      { name: 'White Wood', origin: 'Austria', specification: '1×2, 2×2, 2×3, 2×4, 2×6, 2×8, 2×10, 2×12, 3×3, 3×4, 3×6, 4×4', remarks: '4 metre lengths. Section-size units are not specified in the list.' },
-      { name: 'Meranti', origin: 'Malaysia', specification: '2×10, 2×8 · all lengths', remarks: 'Prime quality. Section-size units are not specified in the list.' },
+      { name: 'White Wood', origin: 'Austria', specification: '1×2, 2×2, 2×3, 2×4, 2×6, 2×8, 2×10, 2×12, 3×3, 3×4, 3×6, 4×4', remarks: '4 metre lengths.' },
+      { name: 'Meranti', origin: 'Malaysia', specification: '2×10, 2×8 · all lengths', remarks: 'Prime quality.' },
       { name: 'Cherry Wood KD', origin: 'USA', specification: '2 inch', remarks: 'Grade A' },
       { name: 'Maple Wood KD', origin: 'USA', specification: '2 inch', remarks: 'Grade A' },
     ],

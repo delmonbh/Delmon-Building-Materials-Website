@@ -30,7 +30,7 @@ export function PageHeader({ title, subtitle, description, image, imageAlt, imag
           </div>
           <div className="lg:col-span-5 pb-2">
             <FadeIn delay={150}>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed border-l border-border pl-6">
+              <p className="font-sans font-normal text-base md:text-lg tracking-normal text-muted-foreground leading-relaxed border-l border-border pl-6">
                 {description}
               </p>
             </FadeIn>

@@ -4,20 +4,19 @@ import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import { ProductCatalogue, ProductDetailsContent } from '@/components/product-catalogue';
+import { ProductDetailsContent } from '@/components/product-catalogue';
 import { productCatalogue } from '@/data/product-catalogue';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 
-import steelImg from '@/assets/steel.jpg';
+import steelImg from '@/assets/steel-straight.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
 import timberImg from '@/assets/timber.jpg';
 import productsHeaderImg from '@/assets/products-header.jpg';
 
 export default function ProductsPage() {
-  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, plywood, MDF, timber, tile adhesives, wall putty, block laying mortar, and insulation and expansion boards.");
+  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood for construction.");
 
   const categories = [
     {
@@ -58,7 +57,7 @@ export default function ProductsPage() {
         <PageHeader 
           subtitle="Inventory"
           title={<>Materials for <br /><span className="italic text-muted-foreground">Serious Construction</span></>}
-          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood, along with wall putty, tile adhesives, block laying mortar, and insulation and expansion boards."
+          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood."
           image={productsHeaderImg}
         />
 
@@ -101,17 +100,8 @@ export default function ProductsPage() {
                       {cat.description}
                     </p>
                     <DialogTrigger asChild>
-                      <Button variant="outline" className="self-center mb-3 rounded-xl" data-testid={`button-details-${cat.id}`}>View Product Details</Button>
+                      <Button className="self-center w-auto max-w-full rounded-xl min-h-12 h-auto whitespace-normal px-6 py-3 text-center bg-primary hover:bg-primary/90 text-white" data-testid={`button-details-${cat.id}`}>View Product Details</Button>
                     </DialogTrigger>
-                    <Button 
-                      asChild 
-                      className="self-center w-auto max-w-full rounded-xl min-h-12 h-auto whitespace-normal px-6 py-3 text-center bg-primary hover:bg-primary/90 text-white transition-colors" 
-                      data-testid={`button-inquire-${cat.id}`}
-                    >
-                      <Link href={`/contact?subject=${encodeURIComponent(cat.title)}`}>
-                        Inquire About {cat.title}
-                      </Link>
-                    </Button>
                   </div>
                 </div>
                 <ProductDetailsContent title={cat.title} groups={groups} />
@@ -121,8 +111,6 @@ export default function ProductsPage() {
             })}
           </div>
         </section>
-
-        <ProductCatalogue />
 
       </main>
       <Footer />

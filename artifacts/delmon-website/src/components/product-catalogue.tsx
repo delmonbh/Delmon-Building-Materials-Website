@@ -1,7 +1,5 @@
-import { Link } from 'wouter';
-import { productCatalogue, type CatalogueGroup } from '@/data/product-catalogue';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { type CatalogueGroup } from '@/data/product-catalogue';
+import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 export function ProductDetailsContent({ title, groups }: { title: string; groups: CatalogueGroup[] }) {
   return (
@@ -31,31 +29,7 @@ export function ProductDetailsContent({ title, groups }: { title: string; groups
           </section>
         ))}
       </div>
-      <Button asChild className="justify-self-center max-w-full whitespace-normal h-auto py-3 px-6 text-center">
-        <Link href={`/contact?subject=${encodeURIComponent(title)}`}>Inquire About {title}</Link>
-      </Button>
     </DialogContent>
   );
 }
 
-export function ProductCatalogue() {
-  const additionalGroups = productCatalogue.filter(group => ['finishing', 'insulation'].includes(group.id));
-  return (
-    <section className="max-w-[1200px] mx-auto px-4 md:px-8 mt-12" aria-labelledby="additional-materials-heading" data-testid="section-product-catalogue">
-      <h2 id="additional-materials-heading" className="font-display text-2xl mb-5">Additional Materials</h2>
-      <div className="grid sm:grid-cols-2 gap-6">
-        {additionalGroups.map(group => (
-          <Dialog key={group.id}>
-            <DialogTrigger asChild>
-              <button className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 text-left hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors" data-testid={`button-details-${group.id}`}>
-                <span className="block font-display text-xl mb-2">{group.title}</span>
-                <span className="text-sm text-primary font-semibold">View {group.products.length} product specifications →</span>
-              </button>
-            </DialogTrigger>
-            <ProductDetailsContent title={group.title} groups={[group]} />
-          </Dialog>
-        ))}
-      </div>
-    </section>
-  );
-}

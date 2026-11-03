@@ -63,7 +63,7 @@ export function Footer() {
           {/* Links Col */}
           <div className="col-span-2 lg:col-span-1">
             <h4 className="font-display font-medium text-sm md:text-base mb-4 md:mb-6 uppercase tracking-wider text-foreground">Navigation</h4>
-            <ul className="grid grid-cols-2 lg:grid-cols-1 gap-y-2 md:gap-y-3 text-xs md:text-sm text-secondary-foreground/80 font-semibold uppercase tracking-wide">
+            <ul className="grid grid-cols-2 lg:grid-cols-1 gap-y-2 md:gap-y-3 text-xs md:text-sm text-secondary-foreground/80 font-sans font-normal leading-relaxed">
               <li><Link href="/about" className="hover:text-primary transition-colors" data-testid="link-footer-about">About</Link></li>
               <li><Link href="/products" className="hover:text-primary transition-colors" data-testid="link-footer-products">Products</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors" data-testid="link-footer-services">Services</Link></li>
