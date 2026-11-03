@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Logo } from '@/components/logo';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -8,6 +8,8 @@ import { Link, useLocation } from 'wouter';
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -21,6 +23,23 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const dismissOutsideMenu = (event: PointerEvent) => {
+      if (!(event.target instanceof Node)) return;
+      if (
+        !mobileMenuRef.current?.contains(event.target) &&
+        !mobileToggleRef.current?.contains(event.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', dismissOutsideMenu, true);
+    return () => document.removeEventListener('pointerdown', dismissOutsideMenu, true);
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: 'About', href: '/about' },
@@ -65,9 +84,12 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
+          ref={mobileToggleRef}
           className="md:hidden p-2 -mr-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
           data-testid="button-mobile-menu-toggle"
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -76,6 +98,10 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       <div 
+        ref={mobileMenuRef}
+        id="mobile-navigation"
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen}
         className={cn(
           "md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg transition-all duration-300 overflow-hidden",
           mobileMenuOpen ? "max-h-[500px] border-border" : "max-h-0 border-transparent"
