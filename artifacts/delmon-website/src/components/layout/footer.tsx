@@ -13,7 +13,7 @@ export function Footer() {
           <div className="col-span-2 lg:col-span-1 grid grid-cols-[auto_1fr] lg:flex lg:flex-col items-start gap-4 lg:gap-6">
             <Logo variant="default" />
             <p className="text-secondary-foreground/70 text-xs md:text-sm leading-relaxed max-w-xs font-sans">
-              Part of the Mohamed Jalal & Sons group. Supporting Bahrain’s growth with premium deformed steel, white wood, and plywood since 1974.
+              Part of the Mohamed Jalal & Sons group. Supporting Bahrain’s growth with deformed steel, welded wire mesh, wood, plywood and MDF, as well as timber, lumber and softwood since 1974.
             </p>
           </div>
 

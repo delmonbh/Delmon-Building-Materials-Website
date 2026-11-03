@@ -19,7 +19,7 @@ export const seoPages = [
   },
   {
     path: '/products',
-    title: 'Steel, Timber & Plywood Products in Bahrain | Delmon',
+    title: 'Steel, Wire Mesh, Wood & Timber in Bahrain | Delmon',
     description: 'Explore deformed steel bars, welded wire mesh, timber, lumber, plywood and MDF from Delmon in Bahrain. View product specifications and request a quotation.',
     heading: 'Building Material Products',
     type: 'CollectionPage',

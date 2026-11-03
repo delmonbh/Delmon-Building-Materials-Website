@@ -38,7 +38,7 @@ function Hero() {
 
             <FadeIn delay={300}>
               <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
-                A major industrial supplier backing national developments and serious contractors with deformed steel, welded wire mesh, and premium wood products for five decades.
+                A major industrial supplier backing national developments and serious contractors with deformed steel, welded wire mesh, wood, plywood and MDF, as well as timber, lumber and softwood for five decades.
               </p>
             </FadeIn>
 

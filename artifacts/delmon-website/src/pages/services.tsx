@@ -16,7 +16,7 @@ export default function ServicesPage() {
     {
       title: "Material Supply",
       icon: Layers3,
-      description: "Coordinated supply of essential structural materials including deformed steel, welded wire mesh, and premium woods for varied project requirements.",
+      description: "Coordinated supply of deformed steel, welded wire mesh, wood, plywood and MDF, as well as timber, lumber and softwood for varied project requirements.",
       details: [
         "Supply planning for varied project volumes",
         "Coordination across core material categories",

@@ -33,7 +33,7 @@ export default function AboutPage() {
         <PageHeader
           subtitle="Our Heritage"
           title={<>Quietly Supporting <br /><span className="italic text-muted-foreground">the Nation's Growth</span></>}
-          description="Established in 1974, Delmon Building Materials has supported construction activity across the Kingdom of Bahrain for five decades. We specialize in the procurement and provision of high yield deformed steel, precision welded wire mesh, and premium structural woods."
+          description="Established in 1974, Delmon Building Materials has supported construction activity across the Kingdom of Bahrain for five decades. We specialize in the procurement and provision of deformed steel, welded wire mesh, wood, plywood and MDF, as well as timber, lumber and softwood."
           image={heroBg}
           imageAlt="Illustrative Bahrain industrial supply scene with steel, wire mesh, wood, and a Bahrain flag"
           imageClassName="object-center"

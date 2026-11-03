@@ -1,3 +1,4 @@
+- [Product range wording](product-range-wording.md) — General product summaries must include all four main categories.
 - [Bahrain imagery](bahrain-imagery.md) — Avoid generic Gulf skylines; keep Delmon visuals specific to Bahrain and construction materials.
 - [FormSubmit activation](formsubmit-activation.md) — Recipient activation is required; HTTP 200 alone does not mean an inquiry was accepted.
 - [Contact box alignment](contact-layout.md) — Side-by-side contact and inquiry boxes must have exactly equal heights, not approximate heights.
