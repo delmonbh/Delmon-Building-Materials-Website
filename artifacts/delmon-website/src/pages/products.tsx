@@ -16,7 +16,7 @@ import timberImg from '@/assets/timber.jpg';
 import productsHeaderImg from '@/assets/products-header.jpg';
 
 export default function ProductsPage() {
-  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood for construction.");
+  usePageSetup();
 
   const categories = [
     {

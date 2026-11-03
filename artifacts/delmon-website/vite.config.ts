@@ -2,6 +2,7 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
+import { seoPlugin } from './seo-plugin';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
@@ -30,6 +31,7 @@ if (!basePath) {
 export default defineConfig({
   base: basePath,
   plugins: [
+    seoPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),

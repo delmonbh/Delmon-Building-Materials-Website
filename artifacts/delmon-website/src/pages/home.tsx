@@ -302,7 +302,7 @@ function Promise() {
 }
 
 export default function HomePage() {
-  usePageSetup("Delmon Building Materials | Kingdom of Bahrain", "A major industrial supplier backing Bahrain's developments and contractors with deformed steel, welded wire mesh, white wood, plywood and MDF since 1974.");
+  usePageSetup();
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">

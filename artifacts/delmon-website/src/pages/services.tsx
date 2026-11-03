@@ -10,7 +10,7 @@ import { usePageSetup } from '@/hooks/use-page-setup';
 import servicesHeaderImg from '@/assets/services-header.jpg';
 
 export default function ServicesPage() {
-  usePageSetup("Services | Delmon Building Materials", "Comprehensive procurement and logistics solutions tailored for serious contractors in Bahrain.");
+  usePageSetup();
 
   const services = [
     {

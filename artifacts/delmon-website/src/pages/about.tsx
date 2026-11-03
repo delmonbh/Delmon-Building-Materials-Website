@@ -8,7 +8,7 @@ import { usePageSetup } from '@/hooks/use-page-setup';
 import heroBg from '@/assets/about-header-bahrain-materials-new.jpg';
 
 export default function AboutPage() {
-  usePageSetup("About Us | Delmon Building Materials", "Learn about Delmon Building Materials, a proud division of Mohamed Jalal & Sons supporting Bahrain's monumental construction projects since 1974.");
+  usePageSetup();
 
   const pillars = [
     {

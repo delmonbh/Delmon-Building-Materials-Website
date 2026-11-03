@@ -28,3 +28,17 @@ mtime_ms = 1790164918773
 storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:0fa55839-b137-4766-878d-2c7ead390630/fd832adb-e584-4e92-b54d-4d168698439e/6b58ddba-abaf-4b25-90af-7344e624f60b"
 storage_version_token = "1790164990568017"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "nxvQE5Lpe2-zRK64P3x20"
+uri = "file://artifacts/delmon-website/public/delmon-social-preview.jpg"
+type = "image"
+title = "New shared-link preview"
+description = "Branded preview image for Delmon website links."
+logical_id = "00168009-1cf7-4341-878d-518018e2945c"
+content_hash = "sha256:18d90c08c4972edcb18664ad28005bd004a7af180d9e4723b3e1566b334733e7"
+size = 137619
+mtime_ms = 1793712730566
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:0fa55839-b137-4766-878d-2c7ead390630/00168009-1cf7-4341-878d-518018e2945c/eff65afb-c713-42d8-9a4f-c3d486b3b787"
+storage_version_token = "1793712952797294"
+content_type = "image/jpeg"

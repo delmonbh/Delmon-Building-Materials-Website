@@ -10,7 +10,7 @@ import { usePageSetup } from '@/hooks/use-page-setup';
 import contactCommunicationImg from '@/assets/contact-communication-still-life.jpg';
 
 export default function ContactPage() {
-  usePageSetup("Contact Us | Delmon Building Materials", "Connect with our procurement specialists to discuss your project requirements, specifications, and volume needs in Bahrain.");
+  usePageSetup();
 
   const [formData, setFormData] = useState({
     name: '',
