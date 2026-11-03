@@ -8,6 +8,7 @@ import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
 
 import heroBg from '@/assets/home-hero-bahrain-materials.jpg';
+import anniversaryBadge from '@/assets/anniversary-badge-adobe.png';
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
 import meshImg from '@/assets/mesh.jpg';
@@ -54,8 +55,8 @@ function Hero() {
             </FadeIn>
           </div>
           
-          <div className="relative w-full order-1 lg:order-2">
-            <FadeIn delay={200}>
+          <div className="relative w-full order-1 lg:order-2 pr-12 sm:pr-20 xl:pr-0">
+            <FadeIn delay={200} className="relative">
               <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl aspect-[16/10] lg:aspect-[4/3] max-h-[500px]">
                 <img 
                   src={heroBg} 
@@ -64,6 +65,12 @@ function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent mix-blend-multiply" />
               </div>
+              <img
+                src={anniversaryBadge}
+                alt="Delmon Building Materials — 50+ years of expertise, established 1974"
+                className="absolute right-0 top-1/2 z-10 w-24 sm:w-40 xl:w-44 translate-x-1/2 -translate-y-1/2 drop-shadow-lg"
+                data-testid="image-hero-anniversary"
+              />
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl hidden md:block" />
             </FadeIn>
           </div>

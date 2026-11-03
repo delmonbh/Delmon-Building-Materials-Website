@@ -6,6 +6,7 @@ import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
+import { ProductCatalogue } from '@/components/product-catalogue';
 
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
@@ -14,7 +15,7 @@ import timberImg from '@/assets/timber.jpg';
 import productsHeaderImg from '@/assets/products-header.jpg';
 
 export default function ProductsPage() {
-  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood for construction.");
+  usePageSetup("Products | Delmon Building Materials", "Explore our inventory of deformed steel, welded wire mesh, plywood, MDF, timber, tile adhesives, wall putty, block laying mortar, and insulation and expansion boards.");
 
   const categories = [
     {
@@ -55,7 +56,7 @@ export default function ProductsPage() {
         <PageHeader 
           subtitle="Inventory"
           title={<>Materials for <br /><span className="italic text-muted-foreground">Serious Construction</span></>}
-          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood."
+          description="We stock and supply essential materials for industrial and commercial construction, including deformed steel, welded wire mesh, wood, plywood, MDF, timber, lumber, and softwood, along with wall putty, tile adhesives, block laying mortar, and insulation and expansion boards."
           image={productsHeaderImg}
         />
 
@@ -101,6 +102,8 @@ export default function ProductsPage() {
             ))}
           </div>
         </section>
+
+        <ProductCatalogue />
 
       </main>
       <Footer />
