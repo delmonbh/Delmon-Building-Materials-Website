@@ -4,7 +4,8 @@ import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
+import { CheckCircle2, MapPin, Phone, Mail } from 'lucide-react';
 import { usePageSetup } from '@/hooks/use-page-setup';
 import contactCommunicationImg from '@/assets/contact-communication-still-life.jpg';
 
@@ -47,6 +48,16 @@ export default function ContactPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const dismissConfirmation = () => {
+    setStatus('idle');
+    const url = new URL(window.location.href);
+    url.searchParams.delete('inquiry');
+    window.history.replaceState(window.history.state, '', url);
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLButtonElement>('[data-testid="button-submit-inquiry"]')?.focus();
+    });
   };
 
   return (
@@ -205,7 +216,6 @@ export default function ContactPage() {
                     </div>
                     </fieldset>
                     {status === 'sending' && <p role="status" className="text-sm text-muted-foreground">Opening secure submission. Complete any verification shown to send your inquiry.</p>}
-                    {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Thank you for submitting your inquiry. Our team will respond as soon as possible.</div>}
                   </form>
                 </div>
               </FadeIn>
@@ -215,6 +225,18 @@ export default function ContactPage() {
         </div>
       </main>
       <Footer />
+      <Dialog open={status === 'success'} onOpenChange={open => { if (!open) dismissConfirmation(); }}>
+        <DialogContent className="max-w-sm rounded-2xl p-8 text-center" data-testid="dialog-inquiry-success">
+          <CheckCircle2 className="mx-auto h-12 w-12 text-primary" aria-hidden="true" />
+          <DialogTitle className="font-display text-3xl font-medium">Thank you!</DialogTitle>
+          <DialogDescription className="text-base leading-relaxed">
+            Thank you for submitting your inquiry. Our team will respond as soon as possible.
+          </DialogDescription>
+          <Button onClick={dismissConfirmation} className="mx-auto rounded-xl px-8" data-testid="button-dismiss-inquiry-success">
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
