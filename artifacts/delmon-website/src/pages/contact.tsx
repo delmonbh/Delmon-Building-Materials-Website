@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
@@ -18,38 +18,31 @@ export default function ContactPage() {
     subject: new URLSearchParams(window.location.search).get('subject') ?? '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>(() =>
+    new URLSearchParams(window.location.search).get('inquiry') === 'submitted'
+      ? 'success'
+      : 'idle'
+  );
   const [website, setWebsite] = useState('');
+  const returnUrl = new URL(`${import.meta.env.BASE_URL}contact?inquiry=submitted`, window.location.origin).href;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (status === 'sending' || website) return;
-    setStatus('sending');
-    setErrorMessage('');
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/delmon@jalal.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          _replyto: formData.email,
-          _subject: `${formData.subject} - Delmon website inquiry from ${formData.name}`,
-          _template: 'table',
-          _honey: website,
-        }),
-        signal: AbortSignal.timeout(25000),
-      });
-      const result = await response.json();
-      if (!response.ok || !(result.success === true || result.success === 'true')) {
-        throw new Error('The email service did not accept your inquiry. Please try again or contact delmon@jalal.com.');
-      }
-      setStatus('success');
-      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
-    } catch {
-      setErrorMessage('Your inquiry could not be submitted. Your message has been kept. Please try again, or contact delmon@jalal.com.');
-      setStatus('error');
+  useEffect(() => {
+    // Browsers can restore this page, including React state, when visitors go back.
+    const restoreSubmission = (event: PageTransitionEvent) => {
+      if (event.persisted) setStatus('idle');
+    };
+    window.addEventListener('pageshow', restoreSubmission);
+    return () => window.removeEventListener('pageshow', restoreSubmission);
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (status === 'sending' || website) {
+      e.preventDefault();
+      return;
     }
+    // Native form navigation does not need cross-origin fetch permission.
+    // Keep the fields enabled so the browser includes them in the POST body.
+    setStatus('sending');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -129,12 +122,16 @@ export default function ContactPage() {
                   
                   <h3 className="text-2xl font-display font-medium text-foreground mb-5">Send an Inquiry</h3>
                   
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form action="https://formsubmit.co/delmon@jalal.com" method="POST" onSubmit={handleSubmit} className="space-y-4">
+                    <input type="hidden" name="_replyto" value={formData.email} />
+                    <input type="hidden" name="_subject" value={`${formData.subject}: Delmon website inquiry from ${formData.name}`} />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_next" value={returnUrl} />
                     <div className="hidden" aria-hidden="true">
                       <label htmlFor="website">Leave this field blank</label>
-                      <input id="website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
+                      <input id="website" name="_honey" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
                     </div>
-                    <fieldset disabled={status === 'sending'} className="space-y-5 disabled:opacity-70">
+                    <fieldset className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Full Name</label>
@@ -207,8 +204,8 @@ export default function ContactPage() {
                       </Button>
                     </div>
                     </fieldset>
-                    {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Your inquiry has been accepted for sending. Thank you for contacting Delmon.</div>}
-                    {status === 'error' && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-900" data-testid="text-inquiry-error">{errorMessage}</div>}
+                    {status === 'sending' && <p role="status" className="text-sm text-muted-foreground">Opening secure submission. Complete any verification shown to send your inquiry.</p>}
+                    {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Thank you for submitting your inquiry. Our team will respond as soon as possible.</div>}
                   </form>
                 </div>
               </FadeIn>
