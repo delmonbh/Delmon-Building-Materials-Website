@@ -13,20 +13,43 @@ export default function ContactPage() {
 
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     company: '',
-    subject: '',
+    subject: new URLSearchParams(window.location.search).get('subject') ?? '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [website, setWebsite] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`${formData.subject} - Inquiry from ${formData.name} (${formData.company})`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Company: ${formData.company}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    window.location.href = `mailto:delmon@jalal.com?subject=${subject}&body=${body}`;
+    if (status === 'sending' || website) return;
+    setStatus('sending');
+    setErrorMessage('');
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/delmon@jalal.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          _replyto: formData.email,
+          _subject: `${formData.subject} - Delmon website inquiry from ${formData.name}`,
+          _template: 'table',
+          _honey: website,
+        }),
+        signal: AbortSignal.timeout(25000),
+      });
+      const result = await response.json();
+      if (!response.ok || !(result.success === true || result.success === 'true')) {
+        throw new Error('The email service did not accept your inquiry. Please try again or contact delmon@jalal.com.');
+      }
+      setStatus('success');
+      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
+    } catch {
+      setErrorMessage('Your inquiry could not be submitted. Your message has been kept—please try again, or contact delmon@jalal.com.');
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -107,6 +130,11 @@ export default function ContactPage() {
                   <h3 className="text-3xl font-display font-medium text-foreground mb-8">Send an Inquiry</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="website">Leave this field blank</label>
+                      <input id="website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
+                    </div>
+                    <fieldset disabled={status === 'sending'} className="space-y-8 disabled:opacity-70">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                       <div className="space-y-3">
                         <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Full Name</label>
@@ -134,6 +162,13 @@ export default function ContactPage() {
                           data-testid="input-company"
                         />
                       </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <label htmlFor="email" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Your Email</label>
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} autoComplete="email" required maxLength={254}
+                        className="w-full h-14 px-4 border-b-2 border-neutral-200 bg-neutral-50 focus:bg-white focus:outline-none focus:border-primary transition-colors text-base rounded-none"
+                        data-testid="input-email" />
                     </div>
 
                     <div className="space-y-3">
@@ -165,10 +200,14 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex justify-center">
-                      <Button type="submit" size="lg" className="rounded-none h-14 px-10 bg-primary hover:bg-primary/90 text-white font-semibold text-sm tracking-wide uppercase shadow-none" data-testid="button-submit-inquiry">
-                        Submit
+                      <Button type="submit" size="lg" disabled={status === 'sending'} className="rounded-none h-14 px-10 bg-primary hover:bg-primary/90 text-white font-semibold text-sm tracking-wide uppercase shadow-none" data-testid="button-submit-inquiry">
+                        {status === 'sending' ? 'Sending…' : 'Submit'}
                       </Button>
                     </div>
+                    </fieldset>
+                    <p className="text-xs text-muted-foreground" style={{ textAlign: 'center' }}>Your inquiry is sent securely through FormSubmit to delmon@jalal.com.</p>
+                    {status === 'success' && <div role="status" className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-900" data-testid="text-inquiry-success">Your inquiry has been accepted for sending. Thank you for contacting Delmon.</div>}
+                    {status === 'error' && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-900" data-testid="text-inquiry-error">{errorMessage}</div>}
                   </form>
                 </div>
               </FadeIn>

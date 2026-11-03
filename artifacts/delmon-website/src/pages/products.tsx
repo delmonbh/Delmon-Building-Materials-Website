@@ -6,7 +6,9 @@ import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { usePageSetup } from '@/hooks/use-page-setup';
-import { ProductCatalogue } from '@/components/product-catalogue';
+import { ProductCatalogue, ProductDetailsContent } from '@/components/product-catalogue';
+import { productCatalogue } from '@/data/product-catalogue';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 
 import steelImg from '@/assets/steel.jpg';
 import woodImg from '@/assets/wood.jpg';
@@ -62,14 +64,24 @@ export default function ProductsPage() {
 
         <section className="max-w-[1200px] mx-auto px-4 md:px-8" data-testid="section-products-list">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {categories.map((cat, idx) => (
+            {categories.map((cat, idx) => {
+              const groups = productCatalogue.flatMap(group => {
+                if (cat.id === 'steel' && group.id === 'reinforcement') return [{ ...group, products: group.products.filter(p => p.name !== 'Welded Wire Mesh') }];
+                if (cat.id === 'mesh' && group.id === 'reinforcement') return [{ ...group, products: group.products.filter(p => p.name === 'Welded Wire Mesh') }];
+                if (cat.id === 'wood' && ['plywood', 'mdf'].includes(group.id)) return [group];
+                if (cat.id === 'timber' && group.id === 'solid-timber') return [group];
+                return [];
+              });
+              return (
               <FadeIn key={cat.id} delay={idx * 150} className="flex flex-col h-full">
+                <Dialog>
                 <div 
                   id={cat.id}
                   data-testid={`product-section-${cat.id}`}
                   className="group flex flex-col h-full bg-neutral-50 rounded-[2rem] p-3 border border-neutral-100 hover:border-neutral-300 hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-500"
                 >
-                  <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] rounded-[1.5rem] overflow-hidden">
+                  <DialogTrigger asChild>
+                  <button type="button" aria-label={`View ${cat.title} specifications`} className="relative w-full aspect-[4/5] sm:aspect-[4/3] rounded-[1.5rem] overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" data-testid={`button-product-image-${cat.id}`}>
                     <img 
                       src={cat.image} 
                       alt={cat.title}
@@ -81,12 +93,16 @@ export default function ProductsPage() {
                       <h2 className="text-3xl font-display font-medium text-white leading-tight">{cat.title}</h2>
                     </div>
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[1.5rem] pointer-events-none"></div>
-                  </div>
+                  </button>
+                  </DialogTrigger>
 
                   <div className="px-3 pt-5 pb-3 flex flex-col flex-1">
                     <p className="text-sm leading-relaxed text-muted-foreground mb-6 flex-1 text-center" style={{ textAlign: 'center' }} data-testid={`text-product-description-${cat.id}`}>
                       {cat.description}
                     </p>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="self-center mb-3 rounded-xl" data-testid={`button-details-${cat.id}`}>View Product Details</Button>
+                    </DialogTrigger>
                     <Button 
                       asChild 
                       className="self-center w-auto max-w-full rounded-xl min-h-12 h-auto whitespace-normal px-6 py-3 text-center bg-primary hover:bg-primary/90 text-white transition-colors" 
@@ -98,8 +114,11 @@ export default function ProductsPage() {
                     </Button>
                   </div>
                 </div>
+                <ProductDetailsContent title={cat.title} groups={groups} />
+                </Dialog>
               </FadeIn>
-            ))}
+              );
+            })}
           </div>
         </section>
 

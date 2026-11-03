@@ -1,1 +1,2 @@
 - [Bahrain imagery](bahrain-imagery.md) — Avoid generic Gulf skylines; keep Delmon visuals specific to Bahrain and construction materials.
+- [FormSubmit activation](formsubmit-activation.md) — Recipient activation is required; HTTP 200 alone does not mean an inquiry was accepted.
