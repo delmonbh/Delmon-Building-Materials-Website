@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FadeIn } from '@/components/fade-in';
@@ -19,31 +19,41 @@ export default function ContactPage() {
     subject: new URLSearchParams(window.location.search).get('subject') ?? '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>(() =>
-    new URLSearchParams(window.location.search).get('inquiry') === 'submitted'
-      ? 'success'
-      : 'idle'
-  );
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const submitting = useRef(false);
   const [website, setWebsite] = useState('');
-  const returnUrl = new URL(`${import.meta.env.BASE_URL}contact?inquiry=submitted`, window.location.origin).href;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting.current || website) return;
 
-  useEffect(() => {
-    // Browsers can restore this page, including React state, when visitors go back.
-    const restoreSubmission = (event: PageTransitionEvent) => {
-      if (event.persisted) setStatus('idle');
-    };
-    window.addEventListener('pageshow', restoreSubmission);
-    return () => window.removeEventListener('pageshow', restoreSubmission);
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (status === 'sending' || website) {
-      e.preventDefault();
-      return;
-    }
-    // Native form navigation does not need cross-origin fetch permission.
-    // Keep the fields enabled so the browser includes them in the POST body.
+    const payload = new FormData(e.currentTarget);
+    submitting.current = true;
     setStatus('sending');
+    setErrorMessage('');
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 25000);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqppwloy', {
+        method: 'POST',
+        body: payload,
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) {
+        throw new Error('Submission not accepted');
+      }
+      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+      setErrorMessage('We could not confirm your inquiry was submitted. Your message has been kept. Please try again shortly, or contact delmon@jalal.com.');
+    } finally {
+      window.clearTimeout(timeout);
+      submitting.current = false;
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -52,9 +62,6 @@ export default function ContactPage() {
 
   const dismissConfirmation = () => {
     setStatus('idle');
-    const url = new URL(window.location.href);
-    url.searchParams.delete('inquiry');
-    window.history.replaceState(window.history.state, '', url);
     requestAnimationFrame(() => {
       document.querySelector<HTMLButtonElement>('[data-testid="button-submit-inquiry"]')?.focus();
     });
@@ -133,16 +140,13 @@ export default function ContactPage() {
                   
                   <h3 className="text-2xl font-display font-medium text-foreground mb-5">Send an Inquiry</h3>
                   
-                  <form action="https://formsubmit.co/delmon@jalal.com" method="POST" onSubmit={handleSubmit} className="space-y-4">
-                    <input type="hidden" name="_replyto" value={formData.email} />
+                  <form action="https://formspree.io/f/mqppwloy" method="POST" onSubmit={handleSubmit} className="space-y-4" aria-busy={status === 'sending'}>
                     <input type="hidden" name="_subject" value={`${formData.subject}: Delmon website inquiry from ${formData.name}`} />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="hidden" name="_next" value={returnUrl} />
                     <div className="hidden" aria-hidden="true">
                       <label htmlFor="website">Leave this field blank</label>
-                      <input id="website" name="_honey" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
+                      <input id="website" name="_gotcha" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} />
                     </div>
-                    <fieldset className="space-y-5">
+                    <fieldset className="space-y-5" disabled={status === 'sending'}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <label htmlFor="name" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Full Name</label>
@@ -215,7 +219,8 @@ export default function ContactPage() {
                       </Button>
                     </div>
                     </fieldset>
-                    {status === 'sending' && <p role="status" className="text-sm text-muted-foreground">Opening secure submission. Complete any verification shown to send your inquiry.</p>}
+                    {status === 'sending' && <p role="status" className="text-sm text-muted-foreground">Sending your inquiry…</p>}
+                    {status === 'error' && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-800">{errorMessage}</p>}
                   </form>
                 </div>
               </FadeIn>

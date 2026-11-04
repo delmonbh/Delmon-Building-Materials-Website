@@ -1,6 +1,6 @@
 - [Product range wording](product-range-wording.md) — General product summaries must include all four main categories.
 - [Bahrain imagery](bahrain-imagery.md) — Avoid generic Gulf skylines; keep Delmon visuals specific to Bahrain and construction materials.
-- [FormSubmit activation](formsubmit-activation.md) — Recipient activation is required; HTTP 200 alone does not mean an inquiry was accepted.
+- [Inquiry provider decision](formsubmit-activation.md) — Formspree replaced failing FormSubmit; show success only after explicit provider acceptance.
 - [Contact box alignment](contact-layout.md) — Side-by-side contact and inquiry boxes must have exactly equal heights, not approximate heights.
 - [Website wording](website-wording.md) — Avoid dashes and hyphens in website prose.
 - [GitHub push verification](github-push-verification.md) — A push may succeed remotely but exit with an error when local tracking refs are protected; verify remote before retrying.
